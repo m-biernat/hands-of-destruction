@@ -2,22 +2,20 @@
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]
-    private float mouseSensitivity = 10f;
+    public float mouseSensitivity = 10f;
 
     [SerializeField]
     private Camera firstPersonCamera;
     [SerializeField]
     private Camera thirdPersonCamera;
-
     [SerializeField]
-    private float distance = 2f;
+    private GameObject cameras;
 
-    private byte defaultCamera = 1;
+    private byte defaultCamera = 2;
 
     void Start()
     {
-        SetupCamera();
+        SetupCameras();
     }
 
     public void Toggle()
@@ -26,11 +24,10 @@ public class CameraController : MonoBehaviour
         thirdPersonCamera.enabled = !thirdPersonCamera.enabled;
     }
 
-    // TODO: Maybe change this in the future.
-    private void SetupCamera()
+    private void SetupCameras()
     {
-        firstPersonCamera.enabled = defaultCamera == 1 ? false : true;
-        thirdPersonCamera.enabled = defaultCamera == 1 ? true : false;
+        firstPersonCamera.enabled = defaultCamera == 1 ? true : false;
+        thirdPersonCamera.enabled = defaultCamera == 2 ? true : false;
     }
 
     public Vector3 CalculateRotationY(float yAxisRotation)
@@ -45,9 +42,15 @@ public class CameraController : MonoBehaviour
 
     public void Rotate(Vector3 rotation)
     {
-        if(firstPersonCamera.enabled)
-            firstPersonCamera.transform.Rotate(-rotation);
-        else
-            thirdPersonCamera.transform.parent.Rotate(-rotation);
+        // Debug.Log(cameras.transform.eulerAngles.x);
+        cameras.transform.Rotate(-rotation);
+    }
+
+    public void ChangeDistance(float zAxisDistance)
+    {
+        float changeFov = thirdPersonCamera.fieldOfView;
+        changeFov += (-zAxisDistance * 50);
+        changeFov = Mathf.Clamp(changeFov, 60, 90);
+        thirdPersonCamera.fieldOfView = changeFov;
     }
 }

@@ -9,6 +9,7 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private Vector3 rotationY = Vector3.zero;
     private Vector3 rotationX = Vector3.zero;
+    private Vector3 jumpForce = Vector3.zero;
 
     void Start()
     {
@@ -22,6 +23,8 @@ public class PlayerMotor : MonoBehaviour
 
     public void RotateCameraX(Vector3 rotation) { this.rotationX = rotation; }
 
+    public void Jump(Vector3 jumpForce) { this.jumpForce = jumpForce; }
+
     void FixedUpdate()
     {
         ApplyMovement();
@@ -30,9 +33,13 @@ public class PlayerMotor : MonoBehaviour
 
     void ApplyMovement()
     {
-        if(velocity != Vector3.zero)
+        if (velocity != Vector3.zero)
         {
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+        }
+        if (jumpForce != Vector3.zero)
+        {
+            rb.AddForce(jumpForce, ForceMode.Impulse); 
         }
     }
 
