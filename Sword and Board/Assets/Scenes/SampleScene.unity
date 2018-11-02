@@ -694,8 +694,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1770287220}
   - {fileID: 1944290279}
+  - {fileID: 1770287220}
   m_Father: {fileID: 1015736573}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -882,6 +882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3a7aeaf3169864cbd4b764d7ef3273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxStamina: 100
+  baseSpeed: 8
+  sprintSpeed: 16
   speed: 8
   jumpForce: 6
 --- !u!114 &1015736578
@@ -938,7 +941,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 866586223}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1770287221
 AudioListener:
@@ -1015,7 +1018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 866586223}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1944290280
 AudioListener:

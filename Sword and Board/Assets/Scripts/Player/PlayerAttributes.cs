@@ -2,10 +2,23 @@
 
 public class PlayerAttributes : MonoBehaviour
 {
+    //public float maxHealth = 100f;
+    //public float health;
+
     [SerializeField]
-    private float speed = 8f;
+    private float maxStamina = 100f;
+    public float Stamina { get; set; }
+
+    public float baseSpeed = 8f;
+    public float sprintSpeed = 16f;
+    public float speed;
 
     public float jumpForce = 6f;
 
-    public float getSpeed () { return speed; }
+    void Start()
+    {
+        //health = maxHealth;
+        Stamina = maxStamina;
+        speed = baseSpeed;
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(CameraController))]
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(CameraController))]
 public class PlayerMotor : MonoBehaviour
 {
     private Rigidbody rb;
@@ -31,7 +32,7 @@ public class PlayerMotor : MonoBehaviour
         ApplyRotation();    
     }
 
-    void ApplyMovement()
+    private void ApplyMovement()
     {
         if (velocity != Vector3.zero)
         {
@@ -43,7 +44,7 @@ public class PlayerMotor : MonoBehaviour
         }
     }
 
-    void ApplyRotation()
+    private void ApplyRotation()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotationY));
         playerCamera.Rotate(rotationX);

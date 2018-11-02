@@ -5,15 +5,19 @@ public class PlayerController : MonoBehaviour
 {
     private PlayerMotor motor;
     private PlayerMovement movement;
-    private PlayerAttributes attribute;
     private CameraController playerCamera;
+
+    private Collider col;
+    private float distToGround;
 
     void Start ()
     {
         motor = GetComponent<PlayerMotor>();
         movement = GetComponent<PlayerMovement>();
-        attribute = GetComponent<PlayerAttributes>();
         playerCamera = GetComponent<CameraController>();
+
+        col = GetComponent<CapsuleCollider>();
+        distToGround = col.bounds.extents.y;
     }
 
     void Update()
@@ -33,24 +37,29 @@ public class PlayerController : MonoBehaviour
         playerCamera.ChangeDistance(zAxisDistance);
 
         if (Input.GetButtonDown("Camera Toggle"))
+        { playerCamera.Toggle(); }
+
+        if(IsGrounded())
         {
-            playerCamera.Toggle();
+            Vector3 jumpForce = Vector3.zero;
+            if (Input.GetButtonDown("Jump"))
+            { jumpForce = movement.JumpForce(); }
+            motor.Jump(jumpForce);
+
+            movement.Run();
+            if (Input.GetButton("Sprint") && (zAxisMovement > 0))
+            { movement.Sprint(); }
+
+            if (Input.GetButtonDown("Dodge") && !(zAxisMovement > 0))
+            { movement.Dodge(); }
+
+            if (Input.GetButton("Crouch"))
+            { movement.Crouch(); }
         }
+    }
 
-        Vector3 jumpForce = Vector3.zero;
-        if (Input.GetButtonDown("Jump"))
-        {
-            jumpForce = Vector3.up * attribute.jumpForce;
-        }
-        motor.Jump(jumpForce);
-
-        if (Input.GetButtonDown("Sprint") && (zAxisMovement > 0))
-        { Debug.Log("Sprint!"); }
-
-        if (Input.GetButtonDown("Dodge") && !(zAxisMovement > 0))
-        { Debug.Log("Dodge!"); }
-
-        if (Input.GetButtonDown("Crouch"))
-        { Debug.Log("Crouch!"); }
+    private bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.5f);
     }
 }

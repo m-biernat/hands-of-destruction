@@ -4,14 +4,12 @@ public class CameraController : MonoBehaviour
 {
     public float mouseSensitivity = 10f;
 
-    [SerializeField]
-    private Camera firstPersonCamera;
-    [SerializeField]
-    private Camera thirdPersonCamera;
-    [SerializeField]
-    private GameObject cameras;
+    [SerializeField] private Camera firstPersonCamera;
+    [SerializeField] private Camera thirdPersonCamera;
+    [SerializeField] private GameObject cameras;
 
     private byte defaultCamera = 2;
+    private float camRotation = 0f;
 
     void Start()
     {
@@ -37,13 +35,14 @@ public class CameraController : MonoBehaviour
 
     public Vector3 CalculateRotationX(float xAxisRotation)
     {
-        return new Vector3(xAxisRotation, 0f, 0f) * mouseSensitivity;
+        camRotation += xAxisRotation * mouseSensitivity;
+        camRotation = Mathf.Clamp(camRotation, -45f, 45f);
+        return new Vector3(camRotation, 0f, 0f);
     }
 
     public void Rotate(Vector3 rotation)
     {
-        // Debug.Log(cameras.transform.eulerAngles.x);
-        cameras.transform.Rotate(-rotation);
+        cameras.transform.localEulerAngles = -rotation;
     }
 
     public void ChangeDistance(float zAxisDistance)
