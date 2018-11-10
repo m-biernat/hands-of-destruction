@@ -1,11 +1,10 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-[RequireComponent(typeof(CameraController))]
+[RequireComponent(typeof(Rigidbody), typeof(CameraManager))]
 public class PlayerMotor : MonoBehaviour
 {
     private Rigidbody rb;
-    private CameraController playerCamera;
+    private CameraManager cameras;
 
     private Vector3 velocity = Vector3.zero;
     private Vector3 rotationY = Vector3.zero;
@@ -15,7 +14,7 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerCamera = GetComponent<CameraController>();
+        cameras = GetComponent<CameraManager>();
     }
 
     public void Move(Vector3 velocity) { this.velocity = velocity; }
@@ -35,18 +34,14 @@ public class PlayerMotor : MonoBehaviour
     private void ApplyMovement()
     {
         if (velocity != Vector3.zero)
-        {
-            rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
-        }
+        { rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime); }
         if (jumpForce != Vector3.zero)
-        {
-            rb.AddForce(jumpForce, ForceMode.Impulse); 
-        }
+        { rb.AddForce(jumpForce, ForceMode.Impulse); }
     }
 
     private void ApplyRotation()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotationY));
-        playerCamera.Rotate(rotationX);
+        cameras.Rotate(rotationX);
     }
 }

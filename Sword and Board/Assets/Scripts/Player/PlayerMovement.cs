@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(PlayerAttributes))]
+[RequireComponent(typeof(PlayerManager))]
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerAttributes attribute;
+    private PlayerManager player;
+
+    private Collider col;
+    private float distToGround;
 
     void Start()
     {
-        attribute = GetComponent<PlayerAttributes>();
+        player = GetComponent<PlayerManager>();
+
+        col = GetComponent<CapsuleCollider>();
+        distToGround = col.bounds.extents.y;
     } 
 
     public Vector3 Velocity(float xAxisMovement, float zAxisMovement)
@@ -15,22 +21,22 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveHorizontal = transform.right * xAxisMovement;
         Vector3 moveVertical = transform.forward * zAxisMovement;
 
-        return (moveHorizontal + moveVertical).normalized * attribute.speed;
+        return (moveHorizontal + moveVertical).normalized * player.speed;
     }
 
     public Vector3 JumpForce()
     {
-        return Vector3.up * attribute.jumpForce;
+        return Vector3.up * player.jumpForce;
     }
 
     public void Run()
     {
-        attribute.speed = attribute.baseSpeed;
+        player.speed = player.baseSpeed;
     }
 
     public void Sprint()
     {
-        attribute.speed = attribute.sprintSpeed;
+        player.speed = player.sprintSpeed;
     }
 
     public void Dodge()
@@ -41,5 +47,10 @@ public class PlayerMovement : MonoBehaviour
     public void Crouch()
     {
         Debug.Log("Crouch!");
+    }
+
+    public bool IsGrounded()
+    {
+        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.5f);
     }
 }

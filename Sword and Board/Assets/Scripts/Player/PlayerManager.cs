@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerAttributes : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     //public float maxHealth = 100f;
     //public float health;
