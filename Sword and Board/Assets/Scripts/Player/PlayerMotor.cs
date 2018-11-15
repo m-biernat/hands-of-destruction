@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+// This class is used to apply different operations to rigidbody.
 [RequireComponent(typeof(Rigidbody), typeof(CameraManager))]
 public class PlayerMotor : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PlayerMotor : MonoBehaviour
         cameras = GetComponent<CameraManager>();
     }
 
+    // Those methods are used for taking data from controller.
     public void Move(Vector3 velocity) { this.velocity = velocity; }
 
     public void RotateCameraY(Vector3 rotation) { this.rotationY = rotation; }
@@ -31,6 +33,7 @@ public class PlayerMotor : MonoBehaviour
         ApplyRotation();    
     }
 
+    // Apply movement to the rigidbody if there is any change.
     private void ApplyMovement()
     {
         if (velocity != Vector3.zero)
@@ -39,6 +42,7 @@ public class PlayerMotor : MonoBehaviour
         { rb.AddForce(jumpForce, ForceMode.Impulse); }
     }
 
+    // Apply rotation to rigidbody and cameras component.
     private void ApplyRotation()
     {
         rb.MoveRotation(rb.rotation * Quaternion.Euler(rotationY));

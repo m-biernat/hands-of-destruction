@@ -37,6 +37,13 @@ ModelImporter:
     100062: Upper_Arm_R
     100064: Upper_Leg_L
     100066: Upper_Leg_R
+    100068: Body
+    100070: Belt
+    100072: Chest_0
+    100074: Mask
+    100076: Pants
+    100078: Shoes
+    100080: Light_Armor
     400000: Armature
     400002: Chest
     400004: Fingers_1_L
@@ -71,8 +78,26 @@ ModelImporter:
     400062: Upper_Arm_R
     400064: Upper_Leg_L
     400066: Upper_Leg_R
+    400068: Body
+    400070: Belt
+    400072: Chest_0
+    400074: Mask
+    400076: Pants
+    400078: Shoes
+    400080: Light_Armor
     2100000: unnamed
+    2100002: Body
+    2100004: Team_Red
+    2100006: Light_Armor_1
+    2100008: Belt
     4300000: Player
+    4300002: Body
+    4300004: Mask
+    4300006: Chest
+    4300008: Belt
+    4300010: Pants
+    4300012: Shoes
+    4300014: Light_Armor
     7400000: Default Take
     7400002: Walk_Backward
     7400004: Walk_Forward
@@ -82,10 +107,17 @@ ModelImporter:
     7400012: Walk_Sideways_R
     9500000: //RootNode
     13700000: Player
+    13700002: Body
+    13700004: Belt
+    13700006: Chest
+    13700008: Mask
+    13700010: Pants
+    13700012: Shoes
+    13700014: Light_Armor
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -101,11 +133,6 @@ ModelImporter:
     animationImportWarnings: "\nClip 'Jump_Start' has import animation warnings that
       might lower retargeting quality:\nNote: Activate translation DOF on avatar to
       improve retargeting quality.\n\t'Lower_Leg_L' has scale animation that will
-      be discarded.\n\t'Foot_L' has scale animation that will be discarded.\n\t'Lower_Leg_R'
-      has scale animation that will be discarded.\n\t'Foot_R' has scale animation
-      that will be discarded.\n\nClip 'Walk_Backward' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Lower_Leg_L' has scale animation that will
       be discarded.\n\t'Foot_L' has scale animation that will be discarded.\n\t'Lower_Leg_R'
       has scale animation that will be discarded.\n\t'Foot_R' has scale animation
       that will be discarded.\n\nClip 'Walk_Forward' has import animation warnings
