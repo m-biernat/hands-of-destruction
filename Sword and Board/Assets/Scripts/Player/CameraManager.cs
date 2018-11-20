@@ -62,8 +62,8 @@ public class CameraManager : MonoBehaviour
         thirdPersonCamera.fieldOfView = changeFov;
     }
 
-    // Ready to be removed.
-    public Camera GetActiveCamera() {
-        return firstPersonCamera.enabled ? firstPersonCamera : thirdPersonCamera;
+    // Return cameras container.
+    public GameObject GetCameras() {
+        return cameras;
     }
 }

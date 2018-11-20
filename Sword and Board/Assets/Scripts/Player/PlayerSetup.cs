@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(Player))]
 public class PlayerSetup : NetworkBehaviour {
 
     [SerializeField]
@@ -8,6 +9,10 @@ public class PlayerSetup : NetworkBehaviour {
 
     [SerializeField]
     private string remoteLayerName = "RemotePlayer";
+
+    [SerializeField]
+    private GameObject playerUIPrefab;
+    private GameObject playerUIInstance;
 
     private Camera sceneCamera;
 
@@ -22,7 +27,13 @@ public class PlayerSetup : NetworkBehaviour {
         {
             sceneCamera = Camera.main;
             if (sceneCamera) sceneCamera.gameObject.SetActive(false);
+
+            playerUIInstance = Instantiate(playerUIPrefab);
+            playerUIInstance.name = playerUIPrefab.name;
         }
+
+        GetComponent<Player>().Setup();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public override void OnStartClient()
@@ -36,6 +47,8 @@ public class PlayerSetup : NetworkBehaviour {
 
     void OnDisable()
     {
+        Destroy(playerUIInstance);
+
         if (sceneCamera) sceneCamera.gameObject.SetActive(true);
         GameManager.DeregisterPlayer(transform.name);
     }

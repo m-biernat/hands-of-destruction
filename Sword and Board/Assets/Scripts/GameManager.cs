@@ -3,6 +3,14 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
+    //public static GameManager instance;
+
+    //void Awake()
+    //{
+    //    if (instance) instance = this;
+    //    else Debug.LogError("Too many instances of GameManager");
+    //}
+
     private const string PLAYER_ID_PREFIX = "Player_";
 
     private static Dictionary<string, Player> players = new Dictionary<string, Player>();

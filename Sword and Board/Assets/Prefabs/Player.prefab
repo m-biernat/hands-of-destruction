@@ -1178,7 +1178,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -1339,6 +1339,8 @@ MonoBehaviour:
   - {fileID: 20586677550514492}
   - {fileID: 81471848857550310}
   remoteLayerName: RemotePlayer
+  playerUIPrefab: {fileID: 1561194919554558, guid: 65f02f979c52d544aa96564fc835d8eb,
+    type: 2}
 --- !u!114 &114453959994984926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1415,6 +1417,8 @@ MonoBehaviour:
   jumpForce: 5
   armor: {fileID: 11400000, guid: 1f542559e78d6374a8114b2d97d58b1c, type: 2}
   playerMesh: {fileID: 137177070511236588}
+  disableOnDeath:
+  - {fileID: 114408910919346278}
 --- !u!114 &114868782515928664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1447,7 +1451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1335
 --- !u!136 &136560274878729052
 CapsuleCollider:
   m_ObjectHideFlags: 1

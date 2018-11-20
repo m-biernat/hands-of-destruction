@@ -3,7 +3,7 @@ using UnityEngine.Networking;
 
 public class PlayerCombat : NetworkBehaviour
 {
-    private Camera cam;
+    private GameObject cam;
 
     private float tempRange = 10f;
 
@@ -12,7 +12,7 @@ public class PlayerCombat : NetworkBehaviour
 
     void Start()
     {
-        cam = GetComponent<CameraManager>().GetActiveCamera();
+        cam = GetComponent<CameraManager>().GetCameras();
     }
 
     void Update()
@@ -24,7 +24,6 @@ public class PlayerCombat : NetworkBehaviour
     public void Attack()
     {
         RaycastHit hit;
-        cam = GetComponent<CameraManager>().GetActiveCamera();
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, tempRange, mask))
         {
             if(hit.collider.tag == "Player")
@@ -39,6 +38,6 @@ public class PlayerCombat : NetworkBehaviour
     {
         Debug.Log(playerID + " hit once.");
         Player player = GameManager.GetPlayer(playerID);
-        player.TakeDamage(damage);
+        player.RpcTakeDamage(damage);
     }
 }
