@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         cameras = GetComponent<CameraManager>();
 
         combat = GetComponent<PlayerCombat>();
-}
+    }
 
     void Update()
     {   
@@ -35,8 +35,9 @@ public class PlayerController : MonoBehaviour
         float yAxisRotation = Input.GetAxisRaw("Mouse X");
         motor.RotateCameraY(cameras.CalculateRotationY(yAxisRotation));
 
+
         float xAxisRotation = Input.GetAxisRaw("Mouse Y");
-        motor.RotateCameraX(cameras.CalculateRotationX(xAxisRotation));
+        motor.RotateCameraX(cameras.CalculateRotationX(xAxisRotation));   
 
         // Takes input from scrollwheel and changes camera distance.
         float zAxisDistance = Input.GetAxis("Mouse ScrollWheel");
@@ -56,15 +57,15 @@ public class PlayerController : MonoBehaviour
             }
             motor.Jump(jumpForce);
 
-            // Sets player into running mode.
-            movement.Run();
-
             // Sets player into sprint mode only if going forward.
-            if (Input.GetButton("Sprint") && (zAxisMovement > 0))
+            if (Input.GetButton("Sprint") && (zAxisMovement > 0) && movement.CanSprint())
             { movement.Sprint(); }
+            else
+            { movement.Run(); }
 
             // Dodge if player is not heading forward.
-            if (Input.GetButtonDown("Dodge") && !(zAxisMovement > 0))
+            if (Input.GetButtonDown("Dodge") && !(zAxisMovement > 0) 
+                && (xAxisMovement != 0 || zAxisMovement != 0))
             { movement.Dodge(); }
 
             // This will be changed to walk propably.

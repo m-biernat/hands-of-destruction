@@ -6,19 +6,28 @@ using System.Collections;
 public class Player : NetworkBehaviour
 {
     [SyncVar] private bool _isAlive;
-    public bool isAlive { get { return _isAlive; } protected set { _isAlive = value; } }
+    public bool IsAlive { get { return _isAlive; } protected set { _isAlive = value; } }
 
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float maxStamina = 100f;
+    [SerializeField] private float maxMagicka = 100f;
 
-    public float baseSpeed = 6f;
+    public float GetMaxHealth() { return maxHealth; }
+    public float GetMaxStamina() { return maxStamina; }
+    public float GetMaxMagicka() { return maxMagicka; }
+
+    [SyncVar] private float _health;
+    public float Health { get { return _health; } set { _health = value; } }
+    public float Stamina { get; set; }
+    public float Magicka { get; set; }
+
+    public float Speed { get; set; }
+
+    public float runSpeed = 6f;
     public float sprintSpeed = 10f;
 
-    [SyncVar]
-    private float health;
-
-    public float Stamina { get; set; }
-    public float Speed { get; set; }
+    public float staminaRegen = 10f;
+    public float sprintCost = 20f;
 
     public float jumpForce = 5f;
 
@@ -43,7 +52,7 @@ public class Player : NetworkBehaviour
     // It should go somwhere else propably (but it works fine)
     private void SetupArmor()
     {
-        baseSpeed += armor.speedModifier;
+        runSpeed += armor.speedModifier;
 
         AttachMesh(armor.meshes[0]);
     }
@@ -64,13 +73,13 @@ public class Player : NetworkBehaviour
     [ClientRpc]
     public void RpcTakeDamage(float damage)
     {
-        if (isAlive) health -= damage;
-        if (health <= 0) Die();
+        if (IsAlive) Health -= damage;
+        if (Health <= 0f) Die();
     }
 
     private void Die()
     {
-        isAlive = false;
+        IsAlive = false;
 
         for (int i = 0; i < disableOnDeath.Length; i++)
         {
@@ -98,13 +107,15 @@ public class Player : NetworkBehaviour
 
     public void SetDefaults()
     {
-        isAlive = true;
-
-        health = maxHealth;
-        Stamina = maxStamina;
-        Speed = baseSpeed;
+        IsAlive = true;
 
         SetupArmor();
+
+        Health = maxHealth;
+        Stamina = maxStamina;
+        Magicka = maxMagicka;
+
+        Speed = runSpeed;
 
         for (int i = 0; i < disableOnDeath.Length; i++)
         {
