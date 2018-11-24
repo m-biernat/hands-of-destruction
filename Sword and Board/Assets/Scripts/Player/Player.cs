@@ -17,9 +17,23 @@ public class Player : NetworkBehaviour
     public float GetMaxMagicka() { return maxMagicka; }
 
     [SyncVar] private float _health;
-    public float Health { get { return _health; } set { _health = value; } }
-    public float Stamina { get; set; }
-    public float Magicka { get; set; }
+    private float _stamina, _magicka;
+
+    public float Health
+    {
+        get { return _health; }
+        set { _health = Mathf.Clamp(value, 0, maxHealth); }
+    }
+    public float Stamina
+    {
+        get { return _stamina; }
+        set { _stamina = Mathf.Clamp(value, 0, maxStamina); }
+    }
+    public float Magicka
+    {
+        get { return _magicka; }
+        set { _magicka = Mathf.Clamp(value, 0, maxMagicka); }
+    }
 
     public float Speed { get; set; }
 
