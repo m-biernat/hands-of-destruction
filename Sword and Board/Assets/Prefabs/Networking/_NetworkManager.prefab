@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4365177858048414}
   - component: {fileID: 114842104478422940}
   - component: {fileID: 114640798020396702}
+  - component: {fileID: 114672326275659778}
   m_Layer: 0
   m_Name: _NetworkManager
   m_TagString: Untagged
@@ -56,6 +57,21 @@ MonoBehaviour:
   showGUI: 1
   offsetX: 0
   offsetY: 0
+--- !u!114 &114672326275659778
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1083321036466262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1180575928, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HostMigration: 1
+  m_ShowGUI: 1
+  m_OffsetX: 10
+  m_OffsetY: 300
 --- !u!114 &114842104478422940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,6 +151,6 @@ MonoBehaviour:
   m_MatchHost: mm.unet.unity3d.com
   m_MatchPort: 443
   matchName: default
-  matchSize: 4
+  matchSize: 10
   isNetworkActive: 0
   matchMaker: {fileID: 0}

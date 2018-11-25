@@ -36,7 +36,7 @@ public class PlayerSetup : NetworkBehaviour {
         }
 
         GetComponent<Player>().Setup();
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
     }
 
     public override void OnStartClient()

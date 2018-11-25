@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Lobby : MonoBehaviour {
+public class LobbyUI : MonoBehaviour {
 
     private static GameObject currentView;
 
@@ -25,5 +25,10 @@ public class Lobby : MonoBehaviour {
     public StatusText GetStatusText()
     {
         return status;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

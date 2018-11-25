@@ -22,11 +22,15 @@ public class HostGame : MonoBehaviour
         }
     }
 
-
     public void CreateLocal()
     {
-        networkManager.StartHost(networkManager.connectionConfig, (int)roomSize);
+        networkManager.networkAddress = "localhost";
+        networkManager.StartHost();
     }
 
-    public void SetRoomName(string name) { roomName = name; }  
+    public void SetRoomName(string roomName)
+    { this.roomName = roomName; }
+
+    public void SetRoomSize(float roomSize)
+    { this.roomSize = (uint)roomSize; }
 }

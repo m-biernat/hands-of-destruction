@@ -16,7 +16,7 @@ public class RoomList : MonoBehaviour
 
     private const string
         T_LOADING = "Loading...",
-        T_LIST_FAIL = "Couldn't get room list",
+        T_LIST_FAIL = "Couldn't get room list.",
         T_LIST_EMPTY = "There are no rooms available.",
         T_JOINING = "Joining room...";
 
@@ -25,7 +25,7 @@ public class RoomList : MonoBehaviour
         networkManager = NetworkManager.singleton;
         if (!networkManager.matchMaker) networkManager.StartMatchMaker();
 
-        status = GetComponent<Lobby>().GetStatusText();
+        status = GetComponent<LobbyUI>().GetStatusText();
     }
 
     public void RefreshRoomList()
