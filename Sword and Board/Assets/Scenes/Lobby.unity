@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587271, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1972,6 +1972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f47b48aa1f851e4ebee8c51313936a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selection: {fileID: 724433675}
 --- !u!114 &435226260
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2806,11 +2807,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4365177858048414, guid: b63e9f5407b4d77488cbff113ab6d161, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114842104478422940, guid: b63e9f5407b4d77488cbff113ab6d161,
-        type: 2}
-      propertyPath: m_UseWebSockets
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
