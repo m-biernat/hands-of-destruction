@@ -5,6 +5,8 @@ public class GameModeSelect : MonoBehaviour
 {
     private Dropdown dropdown;
 
+    [SerializeField] private GameModeList gameModes;
+
     private string selectedGameMode;
 
     public string Label { get; private set; }
@@ -14,19 +16,22 @@ public class GameModeSelect : MonoBehaviour
     {
         dropdown = GetComponent<Dropdown>();
 
+        dropdown.AddOptions(gameModes.GetGameModeList());
+
         Label = dropdown.options[0].text;
         Func = dropdown.options[1].text;
 
         selectedGameMode = Label;
     }
 
-    public void SetValue(Dropdown option)
+    public void SetValue(int option)
     {
-        selectedGameMode = option.itemText.text;
+        selectedGameMode = dropdown.options[option].text;
     }
 
     public string GetValue()
     {
         return selectedGameMode;
     }
+
 }

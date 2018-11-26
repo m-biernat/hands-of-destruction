@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311912, g: 0.3807398, b: 0.3587271, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1847,7 +1847,6 @@ GameObject:
   - component: {fileID: 435226259}
   - component: {fileID: 435226258}
   - component: {fileID: 435226260}
-  - component: {fileID: 435226261}
   m_Layer: 5
   m_Name: Lobby
   m_TagString: Untagged
@@ -1984,21 +1983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6695a2f13d75fe543b58416ae9f9ac9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &435226261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 435226252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed371303e601ad846bb7dca265a541b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quickJoinDropdown: {fileID: 648673499}
-  createGameDropdown: {fileID: 724433672}
-  scenes:
-  - {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
 --- !u!1 &439559547
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,6 +2863,7 @@ GameObject:
   - component: {fileID: 648673501}
   - component: {fileID: 648673500}
   - component: {fileID: 648673499}
+  - component: {fileID: 648673502}
   m_Layer: 5
   m_Name: Mode_Dropdown
   m_TagString: Untagged
@@ -2957,7 +2942,18 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 648673502}
+        m_MethodName: SetValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Dropdown+DropdownEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &648673500
@@ -2994,6 +2990,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 648673497}
   m_CullTransparentMesh: 0
+--- !u!114 &648673502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 648673497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff7c50f1590a744f9394f1cfce7cf2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameModes: {fileID: 114935520279083318, guid: 0df94bf11be3bfb408174c993a8c05be,
+    type: 2}
 --- !u!1 &661156342
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,6 +3306,7 @@ GameObject:
   - component: {fileID: 724433674}
   - component: {fileID: 724433673}
   - component: {fileID: 724433672}
+  - component: {fileID: 724433675}
   m_Layer: 5
   m_Name: Mode_Dropdown
   m_TagString: Untagged
@@ -3375,7 +3385,18 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 724433675}
+        m_MethodName: SetValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Dropdown+DropdownEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &724433673
@@ -3412,6 +3433,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 724433670}
   m_CullTransparentMesh: 0
+--- !u!114 &724433675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 724433670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff7c50f1590a744f9394f1cfce7cf2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameModes: {fileID: 114935520279083318, guid: 0df94bf11be3bfb408174c993a8c05be,
+    type: 2}
 --- !u!1 &730332222
 GameObject:
   m_ObjectHideFlags: 0
