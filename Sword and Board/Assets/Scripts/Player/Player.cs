@@ -8,9 +8,9 @@ public class Player : NetworkBehaviour
     [SyncVar] private bool _isAlive;
     public bool IsAlive { get { return _isAlive; } protected set { _isAlive = value; } }
 
-    [SerializeField] private float maxHealth = 100f;
-    [SerializeField] private float maxStamina = 100f;
-    [SerializeField] private float maxMagicka = 100f;
+    private float maxHealth = 100f;
+    private float maxStamina = 100f;
+    private float maxMagicka = 100f;
 
     public float GetMaxHealth() { return maxHealth; }
     public float GetMaxStamina() { return maxStamina; }

@@ -1,23 +1,28 @@
 ﻿using UnityEngine;
 
 // This class is used to take all input from the player and execute methods based on that input.
-[RequireComponent(typeof(PlayerMotor), typeof(PlayerMovement), typeof(CameraManager))]
+[RequireComponent(typeof(Rigidbody), typeof(PlayerMovement), typeof(CameraManager))]
 public class PlayerController : MonoBehaviour
 {
-    private PlayerMotor motor;
+    private Rigidbody rb;
+
     private PlayerMovement movement;
     private CameraManager cameras;
-
     private PlayerCombat combat;
+
+    private Vector3 velocity = Vector3.zero;
+    private Vector3 rotationY = Vector3.zero;
+    private Vector3 rotationX = Vector3.zero;
+    private Vector3 jumpForce = Vector3.zero;
 
     private float holdTime = 0f;
 
     void Start ()
     {
-        motor = GetComponent<PlayerMotor>();
+        rb = GetComponent<Rigidbody>();
+
         movement = GetComponent<PlayerMovement>();
         cameras = GetComponent<CameraManager>();
-
         combat = GetComponent<PlayerCombat>();
     }
 
@@ -28,16 +33,15 @@ public class PlayerController : MonoBehaviour
         float zAxisMovement = Input.GetAxisRaw("Vertical");
 
         // Based on this input change rigidbody position in game world.
-        motor.Move(movement.Velocity(xAxisMovement, zAxisMovement));
+        velocity = movement.Velocity(xAxisMovement, zAxisMovement);
 
         // Those two takes input from mouse X and Y axis.
         // And rotate rigidbody and cameras.
         float yAxisRotation = Input.GetAxisRaw("Mouse X");
-        motor.RotateCameraY(cameras.CalculateRotationY(yAxisRotation));
-
+        rotationY = cameras.CalculateRotationY(yAxisRotation);
 
         float xAxisRotation = Input.GetAxisRaw("Mouse Y");
-        motor.RotateCameraX(cameras.CalculateRotationX(xAxisRotation));   
+        rotationX = cameras.CalculateRotationX(xAxisRotation);   
 
         // Takes input from scrollwheel and changes camera distance.
         float zAxisDistance = Input.GetAxis("Mouse ScrollWheel");
@@ -50,12 +54,9 @@ public class PlayerController : MonoBehaviour
         if (movement.IsGrounded())
         {
             // Set jump vector if player is jumping.
-            Vector3 jumpForce = Vector3.zero;
+            jumpForce = Vector3.zero;
             if (Input.GetButtonDown("Jump"))
-            {
-                jumpForce = movement.JumpForce();
-            }
-            motor.Jump(jumpForce);
+            { jumpForce = movement.JumpForce(); }
 
             // Sets player into sprint mode only if going forward.
             if (Input.GetButton("Sprint") && (zAxisMovement > 0) && movement.CanSprint())
@@ -77,19 +78,54 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonUp("Mouse Left"))
         {
-            if (holdTime > 0f && holdTime <= .2f) combat.Attack(); //Debug.Log("Light Attack");
-            if (holdTime >= .5f) Debug.Log("Heavy Attack");
+            if (holdTime > 0f && holdTime <= .2f)
+            {
+                combat.MainAttack();
+            }
+            if (holdTime >= .5f)
+            {
+                combat.SpecialAttack();
+            }
             holdTime = 0f;
         }
 
         if (Input.GetButton("Mouse Right"))
         {
+            combat.Block();
             movement.Walk();
             holdTime = 0f;
             if (Input.GetButtonDown("Mouse Left"))
             {
-                Debug.Log("CounterAttack");
+                combat.CounterAttack();
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        ApplyMovement();
+        ApplyRotation();
+    }
+
+    // Apply movement to the rigidbody if there is any change.
+    private void ApplyMovement()
+    {
+        if (velocity != Vector3.zero)
+        { rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime); }
+
+        if (jumpForce != Vector3.zero && movement.IsGrounded())
+        {
+            rb.AddForce(jumpForce, ForceMode.Impulse);
+
+            // This prevents from shooting into the universe.
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, 0f);
+        }
+    }
+
+    // Apply rotation to rigidbody and cameras component.
+    private void ApplyRotation()
+    {
+        rb.MoveRotation(rb.rotation * Quaternion.Euler(rotationY));
+        cameras.Rotate(rotationX);
     }
 }

@@ -7,8 +7,7 @@ public class PlayerCombat : NetworkBehaviour
 
     private float tempRange = 10f;
 
-    [SerializeField]
-    private LayerMask mask;
+    [SerializeField] private LayerMask mask;
 
     void Start()
     {
@@ -18,6 +17,26 @@ public class PlayerCombat : NetworkBehaviour
     void Update()
     {
         Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * tempRange, Color.green);
+    }
+
+    public void MainAttack()
+    {
+        Attack();
+    }
+
+    public void SpecialAttack()
+    {
+        Attack();
+    }
+
+    public void Block()
+    {
+
+    }
+
+    public void CounterAttack()
+    {
+        Attack();
     }
 
     [Client]
