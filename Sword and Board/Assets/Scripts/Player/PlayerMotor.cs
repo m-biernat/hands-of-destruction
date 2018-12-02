@@ -38,8 +38,14 @@ public class PlayerMotor : MonoBehaviour
     {
         if (velocity != Vector3.zero)
         { rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime); }
+
         if (jumpForce != Vector3.zero)
-        { rb.AddForce(jumpForce, ForceMode.Impulse); }
+        {
+            rb.AddForce(jumpForce, ForceMode.Impulse);
+
+            // This prevents from shooting into the universe.
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, 0f);
+        }
     }
 
     // Apply rotation to rigidbody and cameras component.

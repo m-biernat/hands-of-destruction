@@ -14,6 +14,6 @@ MonoBehaviour:
   name: Light Armor
   icon: {fileID: 0}
   meshes:
-  - {fileID: 137549446823582718, guid: 3cbd292242ba1624dbd8d17394c16621, type: 2}
+  - {fileID: 137469161759294442, guid: 3cbd292242ba1624dbd8d17394c16621, type: 2}
   armorModifier: 0
   speedModifier: 0

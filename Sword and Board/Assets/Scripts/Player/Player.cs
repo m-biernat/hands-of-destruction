@@ -39,6 +39,7 @@ public class Player : NetworkBehaviour
 
     public float runSpeed = 6f;
     public float sprintSpeed = 10f;
+    public float walkSpeed = 2f;
 
     public float staminaRegen = 10f;
     public float sprintCost = 20f;

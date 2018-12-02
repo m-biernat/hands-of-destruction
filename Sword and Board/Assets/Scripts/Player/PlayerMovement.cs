@@ -5,8 +5,9 @@
 public class PlayerMovement : MonoBehaviour
 {
     private Player player;
+    private PlayerAnimation animate;
 
-    private Collider col;
+    private CapsuleCollider col;
     private float distToGround;
 
     private float sprintTimer = 0f;
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         player = GetComponent<Player>();
+        animate = GetComponent<PlayerAnimation>();
 
         col = GetComponent<CapsuleCollider>();
         distToGround = col.bounds.extents.y;
@@ -50,6 +52,8 @@ public class PlayerMovement : MonoBehaviour
                 staminaRegenTimer = 0f;
             }
         }
+
+        animate.SetMovementState(false, false, false);
     }
 
     // Sets player in sprint state (changes it's speed).
@@ -64,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
             sprintTimer = 0f;
         }     
         player.Speed = player.sprintSpeed;
+
+        animate.SetMovementState(true, false, false);
     }
 
     // Checks if player has enough stamina to sprint.
@@ -85,11 +91,17 @@ public class PlayerMovement : MonoBehaviour
     // #Waiting for implementation.
     public void Crouch()
     {
-        Debug.Log("Crouch!");
+        player.Speed = player.walkSpeed;
+        animate.SetMovementState(false, false, true);
+    }
+
+    public void Walk()
+    {
+        player.Speed = player.walkSpeed;
+        animate.SetMovementState(false, true, false);
     }
 
     // Checks if player is grounded by firing a raycast to the ground.
-    // This might be changed to CapsuleCheck in the futute.
     public bool IsGrounded()
     {
         return Physics.Raycast(transform.position, Vector3.down, distToGround + .5f);

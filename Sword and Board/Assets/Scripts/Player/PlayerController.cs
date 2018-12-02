@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             { movement.Dodge(); }
 
             // This will be changed to walk propably.
-            if (Input.GetButton("Crouch"))
+            if (Input.GetButton("Crouch") && !Input.GetButton("Sprint"))
             { movement.Crouch(); }
         }
 
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButton("Mouse Right"))
         {
-            //Debug.Log("Block");
+            movement.Walk();
             holdTime = 0f;
             if (Input.GetButtonDown("Mouse Left"))
             {
