@@ -13,7 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Light Armor
   icon: {fileID: 0}
+  description: 
   meshes:
   - {fileID: 137469161759294442, guid: 3cbd292242ba1624dbd8d17394c16621, type: 2}
-  armorModifier: 0
+  healthModifier: 0.5
+  staminaModifier: 0.5
+  magickaModifier: 4
+  staminaRegenModifier: 2
+  magickaRegenModifier: 2
   speedModifier: 0

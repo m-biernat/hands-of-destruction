@@ -42,6 +42,8 @@ public class Player : NetworkBehaviour
     public float walkSpeed = 2f;
 
     public float staminaRegen = 10f;
+    public float magickaRegen = 10f;
+
     public float sprintCost = 20f;
 
     public float jumpForce = 5f;
@@ -53,6 +55,8 @@ public class Player : NetworkBehaviour
     private Behaviour[] disableOnDeath;
     private bool[] wasEnabled;
 
+    private Animator animator;
+
     public void Setup()
     {
         wasEnabled = new bool[disableOnDeath.Length];
@@ -61,35 +65,24 @@ public class Player : NetworkBehaviour
             wasEnabled[i] = disableOnDeath[i].enabled;
         }
 
+        SetupArmor();
         SetDefaults();
-    }
 
-    // It should go somwhere else propably (but it works fine)
-    private void SetupArmor()
-    {
-        runSpeed += armor.speedModifier;
-
-        AttachMesh(armor.meshes[0]);
-    }
-
-    // And this too...
-    private void AttachMesh(SkinnedMeshRenderer itemMesh)
-    {
-        if (itemMesh)
-        {
-            SkinnedMeshRenderer attachedMesh = Instantiate(itemMesh);
-            attachedMesh.transform.parent = playerMesh.transform;
-
-            attachedMesh.bones = playerMesh.bones;
-            attachedMesh.rootBone = playerMesh.rootBone;
-        }
+        animator = GetComponent<Animator>();
     }
 
     [ClientRpc]
     public void RpcTakeDamage(float damage)
     {
-        if (IsAlive) Health -= damage;
-        if (Health <= 0f) Die();
+        if (IsAlive)
+        {
+            Health -= damage;
+            animator.SetTrigger("TakeDamage");
+        }
+        if (Health <= 0f)
+        {
+            Die();
+        }
     }
 
     private void Die()
@@ -106,6 +99,7 @@ public class Player : NetworkBehaviour
         col.enabled = false;     
 
         Debug.Log(transform.name + " died.");
+        animator.SetTrigger("Death");
 
         StartCoroutine(Respawn());
     }
@@ -124,8 +118,6 @@ public class Player : NetworkBehaviour
     {
         IsAlive = true;
 
-        SetupArmor();
-
         Health = maxHealth;
         Stamina = maxStamina;
         Magicka = maxMagicka;
@@ -140,5 +132,35 @@ public class Player : NetworkBehaviour
         Collider col = GetComponent<Collider>();
         col.enabled = true;
         col.attachedRigidbody.useGravity = true;
+    }
+
+    // It should go somwhere else propably (but it works fine)
+    private void SetupArmor()
+    {
+        maxHealth += (maxHealth * armor.healthModifier);
+        maxStamina += (maxStamina * armor.staminaModifier);
+        maxMagicka += (maxMagicka * armor.magickaModifier);
+
+        staminaRegen += (staminaRegen * armor.staminaRegenModifier);
+        magickaRegen += (magickaRegen * armor.magickaRegenModifier);
+
+        runSpeed += (runSpeed * armor.speedModifier);
+        sprintSpeed += (sprintSpeed * armor.speedModifier);
+        walkSpeed += (walkSpeed * armor.speedModifier);
+
+        AttachMesh(armor.meshes[0]);
+    }
+
+    // And this too...
+    private void AttachMesh(SkinnedMeshRenderer itemMesh)
+    {
+        if (itemMesh)
+        {
+            SkinnedMeshRenderer attachedMesh = Instantiate(itemMesh);
+            attachedMesh.transform.parent = playerMesh.transform;
+
+            attachedMesh.bones = playerMesh.bones;
+            attachedMesh.rootBone = playerMesh.rootBone;
+        }
     }
 }

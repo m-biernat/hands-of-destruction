@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     public void Run()
     {
         player.Speed = player.runSpeed;
-        if (player.Stamina < 100f)
+        if (player.Stamina < player.GetMaxStamina())
         {
             sprintTimer = 0f;
             staminaRegenTimer += Time.deltaTime;
@@ -54,13 +54,14 @@ public class PlayerMovement : MonoBehaviour
         }
 
         animate.SetMovementState(false, false, false);
+        animate.SetBlock(false);
     }
 
     // Sets player in sprint state (changes it's speed).
     // And decreases stamina every second.
     public void Sprint()
     {
-        staminaRegenTimer = -1f;
+        staminaRegenTimer = -0.5f;
         sprintTimer += Time.deltaTime;
         if(sprintTimer >= 1f)
         {

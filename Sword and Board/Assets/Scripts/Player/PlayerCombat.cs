@@ -4,6 +4,7 @@ using UnityEngine.Networking;
 public class PlayerCombat : NetworkBehaviour
 {
     private GameObject cam;
+    private PlayerAnimation animate;
 
     private float tempRange = 10f;
 
@@ -12,6 +13,7 @@ public class PlayerCombat : NetworkBehaviour
     void Start()
     {
         cam = GetComponent<CameraManager>().GetCameras();
+        animate = GetComponent<PlayerAnimation>();
     }
 
     void Update()
@@ -21,17 +23,19 @@ public class PlayerCombat : NetworkBehaviour
 
     public void MainAttack()
     {
-        Attack();
+        animate.Trigger("MainAttack");
+        Attack();  
     }
 
     public void SpecialAttack()
     {
+        animate.Trigger("SpecialAttack");
         Attack();
     }
 
     public void Block()
     {
-
+        animate.SetBlock(true);
     }
 
     public void CounterAttack()
@@ -55,8 +59,9 @@ public class PlayerCombat : NetworkBehaviour
     [Command]
     private void CmdPlayerHit(string playerID, float damage)
     {
-        Debug.Log(playerID + " hit once.");
         Player player = GameManager.GetPlayer(playerID);
         player.RpcTakeDamage(damage);
+
+        Debug.Log(playerID + " hit once.");
     }
 }

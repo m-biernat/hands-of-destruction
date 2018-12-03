@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.Networking;
 
-[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Animator), typeof(NetworkAnimator))]
 public class PlayerAnimation : MonoBehaviour
 {
     private Animator animator;
+    private NetworkAnimator networkAnimator;
 
     private float xAxisMovement = 0f;
     private float zAxisMovement = 0f;
@@ -11,6 +13,7 @@ public class PlayerAnimation : MonoBehaviour
     void Start ()
     {
         animator = GetComponent<Animator>();
+        networkAnimator = GetComponent<NetworkAnimator>();
 	}
 
     void Update()
@@ -32,5 +35,16 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("isSprinting", isSprinting);
         animator.SetBool("isWalking", isWalking);
         animator.SetBool("isCrouching", isCrouching);
+    }
+
+    public void Trigger(string state)
+    {
+        networkAnimator.SetTrigger(state);
+        animator.ResetTrigger(state);
+    }
+
+    public void SetBlock(bool isBlocking)
+    {
+        animator.SetBool("isBlocking", isBlocking);
     }
 }
