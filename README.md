@@ -1,1 +1,3 @@
-# wdpg-sword-and-board
+# Hands of Destruction
+
+This is a student project made for college classes.
