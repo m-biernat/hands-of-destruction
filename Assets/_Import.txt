@@ -1,5 +1,4 @@
 # Import Assets:
 - Standard Assets
-- Post Processing Stack
 - FREE Skybox - Cubemap Extended
 - Water Effect Fits For Lowpoly Style
