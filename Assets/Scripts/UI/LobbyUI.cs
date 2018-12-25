@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LobbyUI : MonoBehaviour {
 
@@ -30,5 +31,15 @@ public class LobbyUI : MonoBehaviour {
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void LogIn()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LogOut()
+    {
+        SceneManager.LoadScene(0);
     }
 }

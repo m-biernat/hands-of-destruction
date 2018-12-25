@@ -3,14 +3,12 @@
 // This class is responsible for player cameras and their behaviour.
 public class CameraManager : MonoBehaviour
 {
-    public float mouseSensitivity = 10f;
-
     // Those fields contain both cameras and their container (cameras).
     [SerializeField] private Camera firstPersonCamera;
     [SerializeField] private Camera thirdPersonCamera;
     [SerializeField] private GameObject cameras;
 
-    private byte defaultCamera = 2;
+    private byte defaultCamera = ClientSettings.defaultCamera;
     private float camRotation = 0f;
 
     void Start()
@@ -35,13 +33,13 @@ public class CameraManager : MonoBehaviour
     // Returns a vector for Y axis rotation. (for horizontal rotation)
     public Vector3 CalculateRotationY(float yAxisRotation)
     {
-        return new Vector3(0f, yAxisRotation, 0f) * mouseSensitivity;
+        return new Vector3(0f, yAxisRotation, 0f) * ClientSettings.mouseSensitivity;
     }
 
     // Returns a vector for X axis rotation. (for vertical rotation)
     public Vector3 CalculateRotationX(float xAxisRotation)
     {
-        camRotation += xAxisRotation * mouseSensitivity;
+        camRotation += xAxisRotation * ClientSettings.mouseSensitivity;
         camRotation = Mathf.Clamp(camRotation, -45f, 45f);
         return new Vector3(camRotation, 0f, 0f);
     }
