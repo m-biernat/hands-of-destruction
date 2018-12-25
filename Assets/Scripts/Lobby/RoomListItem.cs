@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 
 public class RoomListItem : MonoBehaviour
@@ -47,6 +48,7 @@ public class RoomListItem : MonoBehaviour
 
     public void JoinRoom()
     {
+        NetworkManager.singleton.onlineScene = gameModePart;
         joinRoomCallback.Invoke(match);
     }
 }

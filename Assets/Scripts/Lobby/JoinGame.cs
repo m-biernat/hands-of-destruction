@@ -9,12 +9,16 @@ public class JoinGame : MonoBehaviour
 
     private StatusText status;
 
+    [SerializeField] private GameModeSelect selection;
+
     private string networkAddress = "localhost";
 
     private const string
         T_LOOKING = "Looking for game...",
         T_CON_FAIL = "Couldn't connect to matchmaking services.",
         T_NO_MATCH = "There are no games available.",
+        T_SELECT = "Select game mode!",
+        T_SELECT_D = "You have to select specific game mode!",
         T_JOINING = "Joining game...";
 
     void Start()
@@ -27,7 +31,21 @@ public class JoinGame : MonoBehaviour
 
     public void QuickJoin()
     {
-        networkManager.matchMaker.ListMatches(0, 10, "", true, 0, 0, OnMatchList);
+        string selected = selection.GetValue();
+
+        if(selected == selection.Label)
+        {
+            status.SetStatus(T_SELECT, false);
+            return;
+        }
+
+        if (selected == selection.Func)
+        {
+            selection.SetRandom();
+            selected = selection.GetValue();
+        }
+
+        networkManager.matchMaker.ListMatches(0, 10, selected, true, 0, 0, OnMatchList);
         status.SetStatus(T_LOOKING, false);
     }
 
@@ -42,6 +60,7 @@ public class JoinGame : MonoBehaviour
         if (matches.Count > 0)
         {
             var match = matches[0];
+            networkManager.onlineScene = match.name.Substring(match.name.LastIndexOf('#') + 1);
             networkManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, networkManager.OnMatchJoined);
             status.SetStatus(T_JOINING, false);
         }
@@ -51,8 +70,18 @@ public class JoinGame : MonoBehaviour
 
     public void DirectJoin()
     {
-        networkManager.networkAddress = networkAddress;
-        networkManager.StartClient();
+        string selected = selection.GetValue();
+
+        if (selected == selection.Label || selected == selection.Func)
+        {
+            status.SetStatus(T_SELECT_D, false);
+        }
+        else
+        {
+            networkManager.networkAddress = networkAddress;
+            networkManager.StartClient();
+            status.SetStatus(T_JOINING, false);
+        }     
     }
 
     public void SetNetworkAddress(string networkAddress)

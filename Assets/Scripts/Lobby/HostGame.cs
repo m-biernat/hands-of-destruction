@@ -40,9 +40,14 @@ public class HostGame : MonoBehaviour
             return;
         }
 
-        if (selected == selection.Func) selection.SetRandom();
+        if (selected == selection.Func)
+        {
+            selection.SetRandom();
+            selected = selection.GetValue();
+        }
 
-        networkManager.ServerChangeScene(selected);
+        //networkManager.ServerChangeScene(selected);
+        networkManager.onlineScene = selected;
         roomName += "#" + selected;
 
         networkManager.matchMaker.CreateMatch(roomName, roomSize, true, "", "", "", 0, 0, networkManager.OnMatchCreate);
@@ -62,7 +67,7 @@ public class HostGame : MonoBehaviour
         if (selected == selection.Func) selection.SetRandom();
 
         networkManager.networkAddress = "localhost";
-        networkManager.ServerChangeScene(selected);
+        //networkManager.ServerChangeScene(selected);
 
         networkManager.StartHost();
         status.SetStatus(T_CREATE, false);

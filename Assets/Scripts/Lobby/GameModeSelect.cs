@@ -36,7 +36,7 @@ public class GameModeSelect : MonoBehaviour
 
     public void SetRandom()
     {
-        int rand = Random.Range(3, dropdown.options.Count);
+        int rand = Random.Range(2, dropdown.options.Count - 1);
         selectedGameMode = dropdown.options[rand].text;
     }
 }
