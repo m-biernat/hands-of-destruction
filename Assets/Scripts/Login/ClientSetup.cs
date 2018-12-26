@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class EnterName : MonoBehaviour
+public class ClientSetup : MonoBehaviour
 {
     [SerializeField]
     private InputField playerNameInput;
@@ -18,17 +18,25 @@ public class EnterName : MonoBehaviour
     T_LONG = "Name is too long!",
     NAME_PREFIX = "Player ";
 
+    private bool changed = false;
+
     void Start()
     {
         lobbyUI = GetComponent<LobbyUI>();
         status = lobbyUI.GetStatusText();
 
+        ClientSettings.Load();
         playerNameInput.text = ClientSettings.playerName;
     }
 
     public void SetPlayerName()
     {
         string playerName = playerNameInput.text;
+
+        if (playerName != ClientSettings.playerName)
+        {
+            changed = true;
+        }
 
         if(playerName == null || playerName == "")
         {
@@ -50,6 +58,7 @@ public class EnterName : MonoBehaviour
 
         status.ClearStatus();
         ClientSettings.playerName = playerName;
+        if (changed) ClientSettings.SaveChanges();
         lobbyUI.ChangeView(nextView);
     }
 
