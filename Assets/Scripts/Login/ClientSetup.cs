@@ -69,13 +69,23 @@ public class ClientSetup : MonoBehaviour
         playerNameInput.text = NAME_PREFIX + '#' + hash;
     }
 
-    public void SetSelectedMagickaID(ushort magickaID)
+    public void SetSelectedMagicID(int magicID)
     {
-        ClientSettings.selectedMagickaID = magickaID;
+        ClientSettings.selectedMagicID = (ushort)magicID;
     }
 
-    public void SetSelectedArmorID(ushort armorID)
+    public void SetSelectedArmorID(int armorID)
     {
-        ClientSettings.selectedArmorID = armorID;
+        ClientSettings.selectedArmorID = (ushort)armorID;
+    }
+
+    public void SetRandomMagicID()
+    {
+        ClientSettings.selectedMagicID = (ushort)Random.Range(1, 1);
+    }
+
+    public void SetRandomArmorID()
+    {
+        ClientSettings.selectedArmorID = (ushort)Random.Range(1, 3);
     }
 }

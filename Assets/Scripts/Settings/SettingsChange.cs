@@ -28,7 +28,6 @@ public class SettingsChange : MonoBehaviour
     public void SaveChanges()
     {
         ClientSettings.SaveChanges();
-        ReloadFormElements();
     }
 
     public void ResetChanges()

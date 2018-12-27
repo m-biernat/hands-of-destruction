@@ -9,16 +9,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9e2254ee4f9ddc4ea542943df9f9772, type: 3}
-  m_Name: Light Armor
+  m_Name: Stamina Armor
   m_EditorClassIdentifier: 
-  name: Light Armor
-  icon: {fileID: 0}
-  description: 
+  name: Thief's Armor of Stamina
+  icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  color: {r: 0.19607843, g: 0.60784316, b: 0.21568628, a: 1}
+  description: It's user gains great mobility
   meshes:
   - {fileID: 137469161759294442, guid: 3cbd292242ba1624dbd8d17394c16621, type: 2}
-  healthModifier: 0.5
+  healthModifier: 0
   staminaModifier: 0.5
-  magickaModifier: 4
+  magickaModifier: 0
   staminaRegenModifier: 2
-  magickaRegenModifier: 2
+  magickaRegenModifier: 0
   speedModifier: 0
