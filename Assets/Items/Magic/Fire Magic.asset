@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f453578faade1494ca74399f6775fff9, type: 3}
-  m_Name: Test Magic
+  m_Name: Fire Magic
   m_EditorClassIdentifier: 
-  name: Test Magic
+  name: Magic of Eternal Fire
   icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  color: {r: 1, g: 0.66279554, b: 0, a: 1}
-  description: This is a test
+  color: {r: 1, g: 0.3823665, b: 0, a: 1}
+  description: Throw fireballs at the enemy, finish them with meteor.
   mainAttack: {fileID: 0}
   specialAttack: {fileID: 0}

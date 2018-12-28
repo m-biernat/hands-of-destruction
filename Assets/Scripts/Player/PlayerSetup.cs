@@ -35,6 +35,11 @@ public class PlayerSetup : NetworkBehaviour {
             playerUI.SetPlayerComponent(GetComponent<Player>());
         }
 
+        CmdSetPlayer(transform.name, ClientSettings.playerName, 
+            ClientSettings.selectedMagicID, ClientSettings.selectedArmorID);
+
+        //CmdTeamAssign(transform.name);
+
         GetComponent<Player>().Setup();
         // Cursor.lockState = CursorLockMode.Locked;
     }
@@ -53,7 +58,8 @@ public class PlayerSetup : NetworkBehaviour {
         Destroy(playerUIInstance);
 
         if (sceneCamera) sceneCamera.gameObject.SetActive(true);
-        GameManager.DeregisterPlayer(transform.name);
+        //CmdTeamUnassing(transform.name);
+        GameManager.DeregisterPlayer(transform.name);   
     }
 
     private void DisableComponents()
@@ -65,4 +71,55 @@ public class PlayerSetup : NetworkBehaviour {
     {
         gameObject.layer = LayerMask.NameToLayer(remoteLayerName);
     }
+
+    [Command]
+    private void CmdSetPlayer(string playerID, string name, byte magicID, byte armorID)
+    {
+        Player player = GameManager.GetPlayer(playerID);
+
+        if(player)
+        {
+            player.playerName = name;
+            player.magicID = magicID;
+            player.armorID = armorID;
+        }
+    }
+
+    /*
+    [Command]
+    private void CmdTeamAssign(string playerID)
+    {
+        Player player = GameManager.GetPlayer(playerID);
+
+        byte teamRedSize = MatchInfo.instance.teamRedSize;
+        byte teamBlueSize = MatchInfo.instance.teamBlueSize;
+
+        if (teamRedSize == teamBlueSize)
+        {
+            int rand = Random.Range(1, 2);
+            player.teamID = (byte)rand;
+            MatchInfo.instance.IncrementTeamSize((byte)rand);
+        }
+
+        else if (teamRedSize > teamBlueSize)
+        {
+            player.teamID = 2;
+            MatchInfo.instance.IncrementTeamSize(2);
+        }
+
+        else if (teamBlueSize > teamRedSize)
+        {
+            player.teamID = 1;
+            MatchInfo.instance.IncrementTeamSize(1);
+        }
+    }
+
+    [Command]
+    private void CmdTeamUnassing(string playerID)
+    {
+        Player player = GameManager.GetPlayer(playerID);
+
+        MatchInfo.instance.DecrementTeamSize(player.teamID);
+    }
+    */
 }

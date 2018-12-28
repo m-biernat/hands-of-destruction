@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd36ce1ca07368047bec117c41730b99, type: 3}
+  m_Name: Armor Manager
+  m_EditorClassIdentifier: 
+  armorList:
+  - {fileID: 11400000, guid: c0093bef9dc5f574f95c27b7f1793a08, type: 2}
+  - {fileID: 11400000, guid: 1f542559e78d6374a8114b2d97d58b1c, type: 2}
+  - {fileID: 11400000, guid: e3c18b0cc94d6a849b5f3d6e76312198, type: 2}
+  - {fileID: 11400000, guid: 2e9392549fc2dd24db0584d98025c218, type: 2}
+  playerMesh: {fileID: 137843884511281606, guid: f85b045fc8f7a394d8310f35c2e6231e,
+    type: 2}

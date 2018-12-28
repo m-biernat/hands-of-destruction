@@ -12,7 +12,7 @@ public static class ClientSettings
 
     public static string playerName = DEFAULT_PLAYER_NAME;
 
-    public static ushort selectedMagicID = 0, selectedArmorID = 0;
+    public static byte selectedMagicID = 0, selectedArmorID = 0;
 
     public static float mouseSensitivity = DEFAULT_M_SENSITIVITY;
     public static byte defaultCamera = DEFAULT_CAMERA_MODE;

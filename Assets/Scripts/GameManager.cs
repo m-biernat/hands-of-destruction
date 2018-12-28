@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    //public static GameManager instance;
+    public static GameManager instance;
 
-    //void Awake()
-    //{
-    //    if (instance) instance = this;
-    //    else Debug.LogError("Too many instances of GameManager");
-    //}
+    void Awake()
+    {
+        if (instance) 
+            Debug.LogError("Too many instances of GameManager!");
+        else
+            instance = this;
+    }
 
     private const string PLAYER_ID_PREFIX = "Player_";
 

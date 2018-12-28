@@ -5,6 +5,13 @@ using System.Collections;
 // This class is used for handling all player related stuff (attributes and methods to change them).
 public class Player : NetworkBehaviour
 {
+    [SyncVar] public string playerName;
+
+    [SyncVar] public byte magicID;
+    [SyncVar] public byte armorID;
+
+    [SyncVar] public byte teamID;
+
     [SyncVar] private bool _isAlive;
     public bool IsAlive { get { return _isAlive; } protected set { _isAlive = value; } }
 
@@ -48,8 +55,10 @@ public class Player : NetworkBehaviour
 
     public float jumpForce = 5f;
 
-    [SerializeField] private Armor armor;
-    public SkinnedMeshRenderer playerMesh;
+
+    [SerializeField] private ArmorManager armorManager;
+    [SerializeField] private SkinnedMeshRenderer playerMesh;
+    private Armor armor;
 
     [SerializeField]
     private Behaviour[] disableOnDeath;
@@ -64,7 +73,7 @@ public class Player : NetworkBehaviour
         {
             wasEnabled[i] = disableOnDeath[i].enabled;
         }
-
+        
         SetupArmor();
         SetDefaults();
 
@@ -114,7 +123,7 @@ public class Player : NetworkBehaviour
         transform.rotation = spawnPoint.rotation;
     }
 
-    public void SetDefaults()
+    private void SetDefaults()
     {
         IsAlive = true;
 
@@ -134,9 +143,10 @@ public class Player : NetworkBehaviour
         col.attachedRigidbody.useGravity = true;
     }
 
-    // It should go somwhere else propably (but it works fine)
     private void SetupArmor()
     {
+        armor = armorManager.GetArmor(armorID);
+
         maxHealth += (maxHealth * armor.healthModifier);
         maxStamina += (maxStamina * armor.staminaModifier);
         maxMagicka += (maxMagicka * armor.magickaModifier);
@@ -148,19 +158,6 @@ public class Player : NetworkBehaviour
         sprintSpeed += (sprintSpeed * armor.speedModifier);
         walkSpeed += (walkSpeed * armor.speedModifier);
 
-        AttachMesh(armor.meshes[0]);
-    }
-
-    // And this too...
-    private void AttachMesh(SkinnedMeshRenderer itemMesh)
-    {
-        if (itemMesh)
-        {
-            SkinnedMeshRenderer attachedMesh = Instantiate(itemMesh);
-            attachedMesh.transform.parent = playerMesh.transform;
-
-            attachedMesh.bones = playerMesh.bones;
-            attachedMesh.rootBone = playerMesh.rootBone;
-        }
+        armorManager.AttachMesh(playerMesh, armor.mesh);
     }
 }

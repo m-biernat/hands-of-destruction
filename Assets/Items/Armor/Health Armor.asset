@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   color: {r: 0.74509805, g: 0.19607843, b: 0.19607843, a: 1}
   description: Fills user with might giving solid health bonus
-  meshes: []
+  mesh: {fileID: 137469161759294442, guid: 3cbd292242ba1624dbd8d17394c16621, type: 2}
   healthModifier: 1.5
   staminaModifier: 0
   magickaModifier: 0

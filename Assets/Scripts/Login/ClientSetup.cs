@@ -71,21 +71,21 @@ public class ClientSetup : MonoBehaviour
 
     public void SetSelectedMagicID(int magicID)
     {
-        ClientSettings.selectedMagicID = (ushort)magicID;
+        ClientSettings.selectedMagicID = (byte)magicID;
     }
 
     public void SetSelectedArmorID(int armorID)
     {
-        ClientSettings.selectedArmorID = (ushort)armorID;
+        ClientSettings.selectedArmorID = (byte)armorID;
     }
 
     public void SetRandomMagicID()
     {
-        ClientSettings.selectedMagicID = (ushort)Random.Range(1, 1);
+        ClientSettings.selectedMagicID = (byte)Random.Range(2, 2);
     }
 
     public void SetRandomArmorID()
     {
-        ClientSettings.selectedArmorID = (ushort)Random.Range(1, 3);
+        ClientSettings.selectedArmorID = (byte)Random.Range(1, 3);
     }
 }

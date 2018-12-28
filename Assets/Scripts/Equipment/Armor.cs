@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(fileName = "New Armor", menuName = "Equipment/Armor")]
 public class Armor : Item
 {  
-    public List<SkinnedMeshRenderer> meshes = null;
+    public SkinnedMeshRenderer mesh = null;
 
     [Header("Modifies attribute by percent")]
     public float healthModifier = 0f;

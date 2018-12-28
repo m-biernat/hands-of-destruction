@@ -1835,6 +1835,8 @@ MonoBehaviour:
   remoteLayerName: RemotePlayer
   playerUIPrefab: {fileID: 1561194919554558, guid: 65f02f979c52d544aa96564fc835d8eb,
     type: 2}
+  match: {fileID: 0}
+  matchInfo: {fileID: 0}
 --- !u!114 &114453959994984926
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1878,7 +1880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82d9dbc677b49ff489d05dc581472cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 4
   firstPersonCamera: {fileID: 20902138119611032}
   thirdPersonCamera: {fileID: 20586677550514492}
   cameras: {fileID: 1899911248762986}
@@ -1904,6 +1905,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3a7aeaf3169864cbd4b764d7ef3273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerName: 
+  magicID: 0
+  armorID: 0
+  teamID: 0
   runSpeed: 6
   sprintSpeed: 10
   walkSpeed: 4
@@ -1911,7 +1916,7 @@ MonoBehaviour:
   magickaRegen: 10
   sprintCost: 20
   jumpForce: 5
-  armor: {fileID: 11400000, guid: 1f542559e78d6374a8114b2d97d58b1c, type: 2}
+  armorManager: {fileID: 11400000, guid: 810953eed8f45304ba0d2e114757f02a, type: 2}
   playerMesh: {fileID: 137717776870599296}
   disableOnDeath:
   - {fileID: 114408910919346278}
