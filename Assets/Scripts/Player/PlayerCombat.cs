@@ -49,9 +49,13 @@ public class PlayerCombat : NetworkBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, tempRange, mask))
         {
-            if(hit.collider.tag == "Player")
+            if (hit.collider.tag == "Player" )
             {
-                CmdPlayerHit(hit.collider.name, 10f);
+                byte hitTeamID = hit.collider.GetComponent<Player>().teamID;
+                byte playerTeamID = GetComponent<Player>().teamID;
+
+                if (hitTeamID != playerTeamID || hitTeamID == 0)
+                    CmdPlayerHit(hit.collider.name, 10f);
             }
         }
     }

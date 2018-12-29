@@ -64,7 +64,7 @@ public class ClientSetup : MonoBehaviour
 
     public void SetRandomName()
     {
-        string hash = Random.Range(1000, 9999).ToString();
+        string hash = Random.Range(1000, 10000).ToString();
 
         playerNameInput.text = NAME_PREFIX + '#' + hash;
     }
@@ -86,6 +86,6 @@ public class ClientSetup : MonoBehaviour
 
     public void SetRandomArmorID()
     {
-        ClientSettings.selectedArmorID = (byte)Random.Range(1, 3);
+        ClientSettings.selectedArmorID = (byte)Random.Range(1, 4);
     }
 }

@@ -33,12 +33,13 @@ public class PlayerSetup : NetworkBehaviour {
 
             PlayerUI playerUI = playerUIInstance.GetComponent<PlayerUI>();
             playerUI.SetPlayerComponent(GetComponent<Player>());
-        }
 
-        CmdSetPlayer(transform.name, ClientSettings.playerName, 
+            CmdSetPlayer(transform.name, ClientSettings.playerName,
             ClientSettings.selectedMagicID, ClientSettings.selectedArmorID);
 
-        //CmdTeamAssign(transform.name);
+            CmdTeamAssign(transform.name);
+            GetComponent<Player>().SetCurrentTeamID();
+        }
 
         GetComponent<Player>().Setup();
         // Cursor.lockState = CursorLockMode.Locked;
@@ -56,9 +57,9 @@ public class PlayerSetup : NetworkBehaviour {
     void OnDisable()
     {
         Destroy(playerUIInstance);
-
         if (sceneCamera) sceneCamera.gameObject.SetActive(true);
-        //CmdTeamUnassing(transform.name);
+
+        SrvTeamUnassing(transform.name);
         GameManager.DeregisterPlayer(transform.name);   
     }
 
@@ -85,7 +86,6 @@ public class PlayerSetup : NetworkBehaviour {
         }
     }
 
-    /*
     [Command]
     private void CmdTeamAssign(string playerID)
     {
@@ -96,7 +96,7 @@ public class PlayerSetup : NetworkBehaviour {
 
         if (teamRedSize == teamBlueSize)
         {
-            int rand = Random.Range(1, 2);
+            int rand = Random.Range(1, 3);
             player.teamID = (byte)rand;
             MatchInfo.instance.IncrementTeamSize((byte)rand);
         }
@@ -114,12 +114,11 @@ public class PlayerSetup : NetworkBehaviour {
         }
     }
 
-    [Command]
-    private void CmdTeamUnassing(string playerID)
+    [Server]
+    private void SrvTeamUnassing(string playerID)
     {
         Player player = GameManager.GetPlayer(playerID);
 
         MatchInfo.instance.DecrementTeamSize(player.teamID);
     }
-    */
 }
