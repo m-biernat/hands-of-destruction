@@ -66,8 +66,6 @@ public class Player : NetworkBehaviour
 
     private Animator animator;
 
-    public static byte currentTeamID = 0;
-
     public void Setup()
     {
         wasEnabled = new bool[disableOnDeath.Length];
@@ -119,10 +117,13 @@ public class Player : NetworkBehaviour
     {
         yield return new WaitForSeconds(3f);
 
-        SetDefaults();
         Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.rotation;
+
+        yield return new WaitForSeconds(0.1f);
+
+        SetDefaults();
     }
 
     private void SetDefaults()
@@ -161,13 +162,5 @@ public class Player : NetworkBehaviour
         walkSpeed += (walkSpeed * armor.speedModifier);
 
         armorManager.AttachMesh(playerMesh, armor.mesh);
-    }
-
-    public void SetCurrentTeamID()
-    {
-        if (teamID != 0)
-            currentTeamID = teamID;
-        else
-            currentTeamID = 3;
     }
 }

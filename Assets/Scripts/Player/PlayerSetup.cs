@@ -38,7 +38,6 @@ public class PlayerSetup : NetworkBehaviour {
             ClientSettings.selectedMagicID, ClientSettings.selectedArmorID);
 
             CmdTeamAssign(transform.name);
-            GetComponent<Player>().SetCurrentTeamID();
         }
 
         GetComponent<Player>().Setup();
