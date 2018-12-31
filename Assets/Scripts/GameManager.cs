@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public static Camera sceneCamera;
+
     void Awake()
     {
         if (instance) 
@@ -32,5 +34,10 @@ public class GameManager : MonoBehaviour
     public static Player GetPlayer(string playerID)
     {
         return players[playerID];
+    }
+
+    public static void SetSceneCameraActive(bool isActive)
+    {
+        if (sceneCamera) sceneCamera.gameObject.SetActive(isActive);
     }
 }

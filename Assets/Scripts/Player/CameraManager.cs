@@ -11,11 +11,6 @@ public class CameraManager : MonoBehaviour
     private byte defaultCamera = ClientSettings.defaultCamera;
     private float camRotation = 0f;
 
-    void Start()
-    {
-        SetupCameras();
-    }
-
     // Changes (toggles) active camera.
     public void Toggle()
     {
@@ -24,8 +19,9 @@ public class CameraManager : MonoBehaviour
     }
 
     // Sets up a camera based on defaultCamera value.
-    private void SetupCameras()
+    public void SetupCameras()
     {
+        cameras.SetActive(true);
         firstPersonCamera.enabled = defaultCamera == 1 ? true : false;
         thirdPersonCamera.enabled = defaultCamera == 2 ? true : false;
     }

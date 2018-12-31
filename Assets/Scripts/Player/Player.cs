@@ -66,12 +66,25 @@ public class Player : NetworkBehaviour
 
     private Animator animator;
 
-    public void Setup()
+    [HideInInspector]
+    public PlayerUI playerUI;
+
+    public IEnumerator Setup()
     {
-        wasEnabled = new bool[disableOnDeath.Length];
-        for (int i = 0; i < wasEnabled.Length; i++)
+        yield return new WaitForSeconds(1f);
+
+        playerMesh.enabled = enabled;
+
+        if (isLocalPlayer)
         {
-            wasEnabled[i] = disableOnDeath[i].enabled;
+            GetComponent<CameraManager>().SetupCameras();
+            GameManager.SetSceneCameraActive(false);
+
+            wasEnabled = new bool[disableOnDeath.Length];
+            for (int i = 0; i < wasEnabled.Length; i++)
+            {
+                wasEnabled[i] = disableOnDeath[i].enabled;
+            }
         }
         
         SetupArmor();
@@ -98,14 +111,19 @@ public class Player : NetworkBehaviour
     {
         IsAlive = false;
 
-        for (int i = 0; i < disableOnDeath.Length; i++)
+        if (isLocalPlayer)
         {
-            disableOnDeath[i].enabled = false;
+            for (int i = 0; i < disableOnDeath.Length; i++)
+            {
+                disableOnDeath[i].enabled = false;
+            }
+
+            playerUI.TogglePlayerSpecificUI();
         }
 
         Collider col = GetComponent<Collider>();
         col.attachedRigidbody.useGravity = false;
-        col.enabled = false;     
+        col.enabled = false;
 
         Debug.Log(transform.name + " died.");
         animator.SetTrigger("Death");
@@ -136,9 +154,14 @@ public class Player : NetworkBehaviour
 
         Speed = runSpeed;
 
-        for (int i = 0; i < disableOnDeath.Length; i++)
+        if (isLocalPlayer)
         {
-            disableOnDeath[i].enabled = wasEnabled[i];
+            for (int i = 0; i < disableOnDeath.Length; i++)
+            {
+                disableOnDeath[i].enabled = wasEnabled[i];
+            }
+
+            playerUI.TogglePlayerSpecificUI();
         }
 
         Collider col = GetComponent<Collider>();

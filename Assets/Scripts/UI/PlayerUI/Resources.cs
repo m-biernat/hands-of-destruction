@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerUI : MonoBehaviour {
+public class Resources : MonoBehaviour
+{
     private Player player;
 
     [SerializeField] private Text healthValue;
@@ -14,13 +15,10 @@ public class PlayerUI : MonoBehaviour {
 
     private float maxHealth, maxStamina, maxMagicka;
 
-    public void SetPlayerComponent(Player player)
-    {
-        this.player = player;
-    }
-
     void Start()
     {
+        player = PlayerUI.playerComponent;
+
         maxHealth = player.GetMaxHealth();
         maxStamina = player.GetMaxStamina();
         maxMagicka = player.GetMaxMagicka();
@@ -38,5 +36,4 @@ public class PlayerUI : MonoBehaviour {
         resourceText.text = value.ToString();
         resourceBar.localScale = new Vector3(value / limit, 1f, 1f);
     }
-
 }

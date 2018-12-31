@@ -797,7 +797,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1909067353090576
 GameObject:
   m_ObjectHideFlags: 1
@@ -1918,6 +1918,7 @@ MonoBehaviour:
   playerMesh: {fileID: 137717776870599296}
   disableOnDeath:
   - {fileID: 114408910919346278}
+  playerUI: {fileID: 0}
 --- !u!114 &114868782515928664
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1989,7 +1990,7 @@ SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1896369395757626}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

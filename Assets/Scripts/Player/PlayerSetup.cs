@@ -14,8 +14,6 @@ public class PlayerSetup : NetworkBehaviour {
     private GameObject playerUIPrefab;
     private GameObject playerUIInstance;
 
-    private Camera sceneCamera;
-
     void Start()
     {
         if (!isLocalPlayer)
@@ -25,23 +23,22 @@ public class PlayerSetup : NetworkBehaviour {
         }
         else
         {
-            sceneCamera = Camera.main;
-            if (sceneCamera) sceneCamera.gameObject.SetActive(false);
+            GameManager.sceneCamera = Camera.main;
 
             playerUIInstance = Instantiate(playerUIPrefab);
             playerUIInstance.name = playerUIPrefab.name;
 
-            PlayerUI playerUI = playerUIInstance.GetComponent<PlayerUI>();
-            playerUI.SetPlayerComponent(GetComponent<Player>());
+            Player player = GetComponent<Player>();
+            player.playerUI = playerUIInstance.GetComponent<PlayerUI>();
+            player.playerUI.SetPlayerComponent(player);
 
             CmdSetPlayer(transform.name, ClientSettings.playerName,
             ClientSettings.selectedMagicID, ClientSettings.selectedArmorID);
 
             CmdTeamAssign(transform.name);
         }
-
-        GetComponent<Player>().Setup();
-        // Cursor.lockState = CursorLockMode.Locked;
+        
+        StartCoroutine(GetComponent<Player>().Setup());
     }
 
     public override void OnStartClient()
@@ -55,8 +52,11 @@ public class PlayerSetup : NetworkBehaviour {
 
     void OnDisable()
     {
-        Destroy(playerUIInstance);
-        if (sceneCamera) sceneCamera.gameObject.SetActive(true);
+        if(isLocalPlayer)
+        {
+            Destroy(playerUIInstance);
+            GameManager.SetSceneCameraActive(true);
+        } 
 
         SrvTeamUnassing(transform.name);
         GameManager.DeregisterPlayer(transform.name);   
