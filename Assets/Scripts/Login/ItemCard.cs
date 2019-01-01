@@ -15,6 +15,7 @@ public class ItemCard : MonoBehaviour
     public void SetIcon(Sprite icon, Color color)
     {
         itemIcon.sprite = icon;
+        itemIcon.color = color;
         itemIconOutline.color = color;
     }
 

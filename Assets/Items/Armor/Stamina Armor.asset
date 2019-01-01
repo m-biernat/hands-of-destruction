@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Stamina Armor
   m_EditorClassIdentifier: 
   name: Thief's Armor of Stamina
-  icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 7d44636cbcfdcf54ba410dfa89bf91c1, type: 3}
   color: {r: 0.19607843, g: 0.60784316, b: 0.21568628, a: 1}
   description: It's user gains great mobility
   mesh: {fileID: 137700303834334848, guid: 7a97002d489742b48b402bdb13ff6c05, type: 2}

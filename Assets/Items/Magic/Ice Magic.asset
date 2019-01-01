@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Ice Magic
   m_EditorClassIdentifier: 
   name: Magic of Glacial Ice
-  icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  icon: {fileID: 21300000, guid: 9ba5f61f0afdbcb40b20dd8fd5b1e112, type: 3}
   color: {r: 0, g: 0.76277757, b: 1, a: 1}
   description: Shot enemies with ice spikes, crush them with multishot
   mainAttack: {fileID: 0}
