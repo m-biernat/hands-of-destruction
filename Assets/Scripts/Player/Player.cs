@@ -185,5 +185,6 @@ public class Player : NetworkBehaviour
         walkSpeed += (walkSpeed * armor.speedModifier);
 
         armorManager.AttachMesh(playerMesh, armor.mesh);
+        armorManager.SetTeamColor(playerMesh, teamID);
     }
 }

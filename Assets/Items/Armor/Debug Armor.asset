@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   color: {r: 1, g: 1, b: 1, a: 1}
   description: 
-  mesh: {fileID: 0}
+  mesh: {fileID: 137986610060228228, guid: e226eee5669d1b64faf24120e35a2a2e, type: 2}
   healthModifier: 0
   staminaModifier: 0
   magickaModifier: 0

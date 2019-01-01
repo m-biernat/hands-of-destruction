@@ -16,5 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1f542559e78d6374a8114b2d97d58b1c, type: 2}
   - {fileID: 11400000, guid: e3c18b0cc94d6a849b5f3d6e76312198, type: 2}
   - {fileID: 11400000, guid: 2e9392549fc2dd24db0584d98025c218, type: 2}
-  playerMesh: {fileID: 137843884511281606, guid: f85b045fc8f7a394d8310f35c2e6231e,
-    type: 2}
+  teamColorMaterial: {fileID: 2100000, guid: f86b378c1a59a804fae9087f1accf5a0, type: 2}
+  teamRedColor: {r: 0.2830189, g: 0.06274475, b: 0.06274475, a: 1}
+  teamBlueColor: {r: 0.12348701, g: 0.19867691, b: 0.3490566, a: 1}
