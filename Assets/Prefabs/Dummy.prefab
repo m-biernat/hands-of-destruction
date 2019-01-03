@@ -486,7 +486,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4132382689831044}
-  - component: {fileID: 95717745133178596}
   m_Layer: 0
   m_Name: Dummy
   m_TagString: Untagged
@@ -854,7 +853,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1617938934752618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.1682743, y: -1.411665e-18, z: 0.6357574}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4788314045314130}
@@ -1464,88 +1463,6 @@ Transform:
   m_Father: {fileID: 4788314045314130}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95717745133178596
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1617938934752618}
-  m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 321f65e0e93934e4e9f20d6475960632, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 1
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: '
-
-    Transform ''Head'' has been deleted
-
-    Transform ''Neck'' has been deleted
-
-    Transform ''Fingers_3.L'' has been deleted
-
-    Transform ''Fingers_2.L'' has been deleted
-
-    Transform ''Fingers_1.L'' has been deleted
-
-    Transform ''Thumb_2.L'' has been deleted
-
-    Transform ''Thumb_1.L'' has been deleted
-
-    Transform ''Hand.L'' has been deleted
-
-    Transform ''Lower_Arm.L'' has been deleted
-
-    Transform ''Upper_Arm.L'' has been deleted
-
-    Transform ''Shoulder.L'' has been deleted
-
-    Transform ''Fingers_3.R'' has been deleted
-
-    Transform ''Fingers_2.R'' has been deleted
-
-    Transform ''Fingers_1.R'' has been deleted
-
-    Transform ''Thumb_2.R'' has been deleted
-
-    Transform ''Thumb_1.R'' has been deleted
-
-    Transform ''Hand.R'' has been deleted
-
-    Transform ''Lower_Arm.R'' has been deleted
-
-    Transform ''Upper_Arm.R'' has been deleted
-
-    Transform ''Shoulder.R'' has been deleted
-
-    Transform ''Chest'' has been deleted
-
-    Transform ''Spine'' has been deleted
-
-    Transform ''Toes.L'' has been deleted
-
-    Transform ''Foot.L'' has been deleted
-
-    Transform ''Lower_Leg.L'' has been deleted
-
-    Transform ''Upper_Leg.L'' has been deleted
-
-    Transform ''Toes.R'' has been deleted
-
-    Transform ''Foot.R'' has been deleted
-
-    Transform ''Lower_Leg.R'' has been deleted
-
-    Transform ''Upper_Leg.R'' has been deleted
-
-    Transform ''Hips'' has been deleted
-
-    Transform ''Armature'' has been deleted'
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!137 &137217358294627760
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
