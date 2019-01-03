@@ -1,0 +1,323 @@
+fileFormatVersion: 2
+guid: 5b6ee034f5775174687cfdca18c7afba
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Box001
+    100002: Drzewko
+    100004: Drzewko wieksze
+    100006: GeoSphere001
+    100008: GeoSphere001 1
+    100010: GeoSphere002
+    100012: GeoSphere002 1
+    100014: GeoSphere003
+    100016: GeoSphere003 1
+    100018: GeoSphere004
+    100020: GeoSphere005
+    100022: GeoSphere006
+    100024: GeoSphere007
+    100026: GeoSphere008
+    100028: GeoSphere009
+    100030: GeoSphere010
+    100032: GeoSphere011
+    100034: GeoSphere012
+    100036: GeoSphere013
+    100038: GeoSphere014
+    100040: GeoSphere015
+    100042: GeoSphere016
+    100044: GeoSphere017
+    100046: GeoSphere018
+    100048: GeoSphere019
+    100050: GeoSphere020
+    100052: GeoSphere021
+    100054: GeoSphere022
+    100056: GeoSphere023
+    100058: GeoSphere024
+    100060: GeoSphere025
+    100062: GeoSphere026
+    100064: GeoSphere027
+    100066: GeoSphere028
+    100068: GeoSphere029
+    100070: GeoSphere030
+    100072: GeoSphere031
+    100074: GeoSphere032
+    100076: GeoSphere033
+    100078: GeoSphere034
+    100080: GeoSphere037
+    100082: GeoSphere039
+    100084: NGon001
+    100086: PhotometricLight001
+    100088: Plane002
+    100090: Plane003
+    100092: //RootNode
+    400000: Box001
+    400002: Drzewko
+    400004: Drzewko wieksze
+    400006: GeoSphere001
+    400008: GeoSphere001 1
+    400010: GeoSphere002
+    400012: GeoSphere002 1
+    400014: GeoSphere003
+    400016: GeoSphere003 1
+    400018: GeoSphere004
+    400020: GeoSphere005
+    400022: GeoSphere006
+    400024: GeoSphere007
+    400026: GeoSphere008
+    400028: GeoSphere009
+    400030: GeoSphere010
+    400032: GeoSphere011
+    400034: GeoSphere012
+    400036: GeoSphere013
+    400038: GeoSphere014
+    400040: GeoSphere015
+    400042: GeoSphere016
+    400044: GeoSphere017
+    400046: GeoSphere018
+    400048: GeoSphere019
+    400050: GeoSphere020
+    400052: GeoSphere021
+    400054: GeoSphere022
+    400056: GeoSphere023
+    400058: GeoSphere024
+    400060: GeoSphere025
+    400062: GeoSphere026
+    400064: GeoSphere027
+    400066: GeoSphere028
+    400068: GeoSphere029
+    400070: GeoSphere030
+    400072: GeoSphere031
+    400074: GeoSphere032
+    400076: GeoSphere033
+    400078: GeoSphere034
+    400080: GeoSphere037
+    400082: GeoSphere039
+    400084: NGon001
+    400086: PhotometricLight001
+    400088: Plane002
+    400090: Plane003
+    400092: //RootNode
+    2100000: 02 - Default
+    2100002: 03 - Default
+    2100004: 01 - Default
+    2100006: No Name
+    2300000: Box001
+    2300002: Drzewko
+    2300004: Drzewko wieksze
+    2300006: GeoSphere001
+    2300008: GeoSphere001 1
+    2300010: GeoSphere002
+    2300012: GeoSphere002 1
+    2300014: GeoSphere003
+    2300016: GeoSphere003 1
+    2300018: GeoSphere004
+    2300020: GeoSphere005
+    2300022: GeoSphere006
+    2300024: GeoSphere007
+    2300026: GeoSphere008
+    2300028: GeoSphere009
+    2300030: GeoSphere010
+    2300032: GeoSphere011
+    2300034: GeoSphere012
+    2300036: GeoSphere013
+    2300038: GeoSphere014
+    2300040: GeoSphere015
+    2300042: GeoSphere016
+    2300044: GeoSphere017
+    2300046: GeoSphere018
+    2300048: GeoSphere019
+    2300050: GeoSphere020
+    2300052: GeoSphere021
+    2300054: GeoSphere022
+    2300056: GeoSphere023
+    2300058: GeoSphere024
+    2300060: GeoSphere025
+    2300062: GeoSphere026
+    2300064: GeoSphere027
+    2300066: GeoSphere028
+    2300068: GeoSphere029
+    2300070: GeoSphere030
+    2300072: GeoSphere031
+    2300074: GeoSphere032
+    2300076: GeoSphere033
+    2300078: GeoSphere034
+    2300080: GeoSphere037
+    2300082: GeoSphere039
+    2300084: NGon001
+    2300086: Plane002
+    2300088: Plane003
+    3300000: Box001
+    3300002: Drzewko
+    3300004: Drzewko wieksze
+    3300006: GeoSphere001
+    3300008: GeoSphere001 1
+    3300010: GeoSphere002
+    3300012: GeoSphere002 1
+    3300014: GeoSphere003
+    3300016: GeoSphere003 1
+    3300018: GeoSphere004
+    3300020: GeoSphere005
+    3300022: GeoSphere006
+    3300024: GeoSphere007
+    3300026: GeoSphere008
+    3300028: GeoSphere009
+    3300030: GeoSphere010
+    3300032: GeoSphere011
+    3300034: GeoSphere012
+    3300036: GeoSphere013
+    3300038: GeoSphere014
+    3300040: GeoSphere015
+    3300042: GeoSphere016
+    3300044: GeoSphere017
+    3300046: GeoSphere018
+    3300048: GeoSphere019
+    3300050: GeoSphere020
+    3300052: GeoSphere021
+    3300054: GeoSphere022
+    3300056: GeoSphere023
+    3300058: GeoSphere024
+    3300060: GeoSphere025
+    3300062: GeoSphere026
+    3300064: GeoSphere027
+    3300066: GeoSphere028
+    3300068: GeoSphere029
+    3300070: GeoSphere030
+    3300072: GeoSphere031
+    3300074: GeoSphere032
+    3300076: GeoSphere033
+    3300078: GeoSphere034
+    3300080: GeoSphere037
+    3300082: GeoSphere039
+    3300084: NGon001
+    3300086: Plane002
+    3300088: Plane003
+    4300000: NGon001
+    4300002: Plane002
+    4300004: Plane003
+    4300006: GeoSphere001
+    4300008: GeoSphere002
+    4300010: GeoSphere003
+    4300012: GeoSphere004
+    4300014: GeoSphere005
+    4300016: GeoSphere006
+    4300018: GeoSphere007
+    4300020: GeoSphere008
+    4300022: GeoSphere009
+    4300024: GeoSphere010
+    4300026: GeoSphere011
+    4300028: GeoSphere012
+    4300030: GeoSphere013
+    4300032: GeoSphere014
+    4300034: GeoSphere015
+    4300036: GeoSphere016
+    4300038: GeoSphere017
+    4300040: GeoSphere018
+    4300042: GeoSphere019
+    4300044: GeoSphere020
+    4300046: GeoSphere021
+    4300048: GeoSphere022
+    4300050: GeoSphere023
+    4300052: GeoSphere024
+    4300054: GeoSphere025
+    4300056: GeoSphere026
+    4300058: GeoSphere027
+    4300060: GeoSphere028
+    4300062: GeoSphere029
+    4300064: GeoSphere030
+    4300066: GeoSphere031
+    4300068: GeoSphere032
+    4300070: Drzewko
+    4300072: Box001
+    4300074: Drzewko wieksze
+    4300076: GeoSphere001
+    4300078: GeoSphere002
+    4300080: GeoSphere003
+    4300082: GeoSphere033
+    4300084: GeoSphere034
+    4300086: GeoSphere037
+    4300088: GeoSphere039
+    9500000: //RootNode
+    10800000: PhotometricLight001
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.0254
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
