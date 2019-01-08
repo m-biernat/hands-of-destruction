@@ -46,7 +46,6 @@ public class HostGame : MonoBehaviour
             selected = selection.GetValue();
         }
 
-        //networkManager.ServerChangeScene(selected);
         networkManager.onlineScene = selected;
         roomName += "#" + selected;
 
@@ -66,8 +65,8 @@ public class HostGame : MonoBehaviour
 
         if (selected == selection.Func) selection.SetRandom();
 
+        networkManager.onlineScene = selected;
         networkManager.networkAddress = "localhost";
-        //networkManager.ServerChangeScene(selected);
 
         networkManager.StartHost();
         status.SetStatus(T_CREATE, false);

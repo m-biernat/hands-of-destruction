@@ -78,6 +78,7 @@ public class JoinGame : MonoBehaviour
         }
         else
         {
+            networkManager.onlineScene = selected;
             networkManager.networkAddress = networkAddress;
             networkManager.StartClient();
             status.SetStatus(T_JOINING, false);
