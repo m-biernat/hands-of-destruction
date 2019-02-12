@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Match Setting", menuName = "Match/Setting")]
-public class MatchSettings : ScriptableObject
+[CreateAssetMenu(fileName = "New Game Setting", menuName = "Game/Setting")]
+public class GameSettings : ScriptableObject
 {
     public int pointsAtStart;
     public int pointsToComplete;

@@ -10,10 +10,12 @@ public class PlayerController : MonoBehaviour
     private CameraManager cameras;
     private PlayerCombat combat;
 
-    private Vector3 velocity = Vector3.zero;
-    private Vector3 rotationY = Vector3.zero;
-    private Vector3 rotationX = Vector3.zero;
-    private Vector3 jumpForce = Vector3.zero;
+    private Vector3 velocity = Vector3.zero, rotationY = Vector3.zero, 
+                    rotationX = Vector3.zero, jumpForce = Vector3.zero;
+
+    private float xAxisMovement = 0f, zAxisMovement = 0f, 
+                  yAxisRotation = 0f, xAxisRotation = 0f, 
+                  zAxisDistance = 0f;
 
     private float holdTime = 0f;
 
@@ -27,24 +29,34 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
+        if (PauseMenu.IsActive)
+        {
+            velocity = movement.Velocity(0f, 0f);
+            rotationY = cameras.CalculateRotationY(0f);
+            rotationX = cameras.CalculateRotationX(0f);
+            movement.Run();
+
+            return;
+        }
+
         // Take movement input from the player.
-        float xAxisMovement = Input.GetAxisRaw("Horizontal");
-        float zAxisMovement = Input.GetAxisRaw("Vertical");
+        xAxisMovement = Input.GetAxisRaw("Horizontal");
+        zAxisMovement = Input.GetAxisRaw("Vertical");
 
         // Based on this input change rigidbody position in game world.
         velocity = movement.Velocity(xAxisMovement, zAxisMovement);
 
         // Those two takes input from mouse X and Y axis.
         // And rotate rigidbody and cameras.
-        float yAxisRotation = Input.GetAxisRaw("Mouse X");
+        yAxisRotation = Input.GetAxisRaw("Mouse X");
         rotationY = cameras.CalculateRotationY(yAxisRotation);
 
-        float xAxisRotation = Input.GetAxisRaw("Mouse Y");
+        xAxisRotation = Input.GetAxisRaw("Mouse Y");
         rotationX = cameras.CalculateRotationX(xAxisRotation);   
 
         // Takes input from scrollwheel and changes camera distance.
-        float zAxisDistance = Input.GetAxis("Mouse ScrollWheel");
+        zAxisDistance = Input.GetAxis("Mouse ScrollWheel");
         cameras.ChangeDistance(zAxisDistance);
 
         // Toggles active camera

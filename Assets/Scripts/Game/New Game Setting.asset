@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d860f16c5cbbae445a8c9bd7af595a9e, type: 3}
-  m_Name: New Match Setting
+  m_Name: New Game Setting
   m_EditorClassIdentifier: 
   pointsAtStart: 0
   pointsToComplete: 50

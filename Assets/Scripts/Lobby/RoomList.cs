@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
+using System.Collections;
 using System.Collections.Generic;
 
 public class RoomList : MonoBehaviour
@@ -18,7 +19,8 @@ public class RoomList : MonoBehaviour
         T_LOADING = "Loading...",
         T_LIST_FAIL = "Couldn't get room list.",
         T_LIST_EMPTY = "There are no rooms available.",
-        T_JOINING = "Joining room...";
+        T_JOINING = "Joining room...",
+        T_FAILED = "Failed to connect!";
 
     void Start()
     {
@@ -71,7 +73,29 @@ public class RoomList : MonoBehaviour
     public void JoinRoom(MatchInfoSnapshot match)
     {
         networkManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, networkManager.OnMatchJoined);
+        StartCoroutine(WaitForJoin());
+    }
+
+    IEnumerator WaitForJoin()
+    {
         ClearRoomList();
+
         status.SetStatus(T_JOINING, false);
+        yield return new WaitForSeconds(10);
+
+        status.SetStatus(T_FAILED, true);
+        yield return new WaitForSeconds(2);
+
+        MatchInfo matchInfo = networkManager.matchInfo;
+        if (matchInfo != null)
+        {
+            networkManager.matchMaker.DropConnection(matchInfo.networkId,
+                   matchInfo.nodeId, 0, networkManager.OnDropConnection);
+        }
+        networkManager.StopHost();
+
+        if (!networkManager.matchMaker) networkManager.StartMatchMaker();
+
+        RefreshRoomList();
     }
 }

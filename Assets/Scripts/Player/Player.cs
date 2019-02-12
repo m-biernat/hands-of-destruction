@@ -118,7 +118,7 @@ public class Player : NetworkBehaviour
                 disableOnDeath[i].enabled = false;
             }
 
-            playerUI.TogglePlayerSpecificUI();
+            playerUI.ToggleUI(playerUI.playerSpecificUI);
         }
 
         Collider col = GetComponent<Collider>();
@@ -161,7 +161,7 @@ public class Player : NetworkBehaviour
                 disableOnDeath[i].enabled = wasEnabled[i];
             }
 
-            playerUI.TogglePlayerSpecificUI();
+            playerUI.ToggleUI(playerUI.playerSpecificUI);
         }
 
         Collider col = GetComponent<Collider>();

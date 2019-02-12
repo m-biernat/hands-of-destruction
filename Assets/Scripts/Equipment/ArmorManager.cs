@@ -33,7 +33,7 @@ public class ArmorManager : ScriptableObject
 
     public void SetTeamColor(SkinnedMeshRenderer playerMesh, byte teamID)
     {
-        if (MatchInfo.instance.settings.teamAssignEnabled && teamID != 0)
+        if (GameInfo.instance.settings.teamAssignEnabled && teamID != 0)
         {
             SkinnedMeshRenderer armorInstance = 
                 playerMesh.gameObject.transform.GetChild(0).GetComponent<SkinnedMeshRenderer>();

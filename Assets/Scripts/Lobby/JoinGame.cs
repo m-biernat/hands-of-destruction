@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
+using System.Collections;
 using System.Collections.Generic;
 
 public class JoinGame : MonoBehaviour
@@ -19,7 +20,8 @@ public class JoinGame : MonoBehaviour
         T_NO_MATCH = "There are no games available.",
         T_SELECT = "Select game mode!",
         T_SELECT_D = "You have to select specific game mode!",
-        T_JOINING = "Joining game...";
+        T_JOINING = "Joining game...",
+        T_FAILED = "Failed to connect!";
 
     void Start()
     {
@@ -62,7 +64,7 @@ public class JoinGame : MonoBehaviour
             var match = matches[0];
             networkManager.onlineScene = match.name.Substring(match.name.LastIndexOf('#') + 1);
             networkManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, networkManager.OnMatchJoined);
-            status.SetStatus(T_JOINING, false);
+            StartCoroutine(WaitForJoin());
         }
         else
             status.SetStatus(T_NO_MATCH, false);
@@ -81,8 +83,29 @@ public class JoinGame : MonoBehaviour
             networkManager.onlineScene = selected;
             networkManager.networkAddress = networkAddress;
             networkManager.StartClient();
-            status.SetStatus(T_JOINING, false);
+            StartCoroutine(WaitForJoin());
         }     
+    }
+
+    IEnumerator WaitForJoin()
+    {
+        status.SetStatus(T_JOINING, false);
+        yield return new WaitForSeconds(10);
+
+        status.SetStatus(T_FAILED, true);
+        yield return new WaitForSeconds(2);
+
+        status.ClearStatus();
+
+        MatchInfo matchInfo = networkManager.matchInfo;
+        if (matchInfo != null)
+        {
+            networkManager.matchMaker.DropConnection(matchInfo.networkId,
+                   matchInfo.nodeId, 0, networkManager.OnDropConnection);
+        }
+        networkManager.StopHost();
+
+        if (!networkManager.matchMaker) networkManager.StartMatchMaker();
     }
 
     public void SetNetworkAddress(string networkAddress)

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class MatchInfo : NetworkBehaviour
+public class GameInfo : NetworkBehaviour
 {
     [SyncVar] public byte teamRedSize = 0;
     [SyncVar] public byte teamBlueSize = 0;
@@ -9,14 +9,14 @@ public class MatchInfo : NetworkBehaviour
     [SyncVar] public int teamRedPoints = 0;
     [SyncVar] public int teamBluePoints = 0;
 
-    public MatchSettings settings;
+    public GameSettings settings;
 
-    public static MatchInfo instance;
+    public static GameInfo instance;
 
     void Awake()
     {
         if (instance)
-            Debug.LogError("Too many instances of MatchInfo!");
+            Debug.LogError("Too many instances of GameInfo!");
         else
             instance = this;
     }

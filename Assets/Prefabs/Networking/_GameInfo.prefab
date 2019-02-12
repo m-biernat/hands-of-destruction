@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114247423890642000}
   - component: {fileID: 114688218275626476}
   m_Layer: 0
-  m_Name: _MatchInfo
+  m_Name: _GameInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

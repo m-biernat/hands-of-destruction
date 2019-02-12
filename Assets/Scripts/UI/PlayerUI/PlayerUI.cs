@@ -6,17 +6,23 @@ public class PlayerUI : MonoBehaviour
     [HideInInspector]
     public static Player playerComponent;
 
-    [SerializeField]
-    private GameObject playerSpecificUI;
+    public GameObject playerSpecificUI;
+    public GameObject pauseMenu;
 
     void Start()
     {
-        
+        PauseMenu.IsActive = false;
+        CursorLock();
     }
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleUI(pauseMenu);
+            PauseMenu.IsActive = pauseMenu.activeSelf;
+            CursorLock();
+        }
     }
 
     public void SetPlayerComponent(Player playerComponent)
@@ -29,11 +35,22 @@ public class PlayerUI : MonoBehaviour
         return playerComponent;
     }
 
-    public void TogglePlayerSpecificUI()
+    public void ToggleUI(GameObject elem)
     {
-        if (playerSpecificUI.activeSelf)
-            playerSpecificUI.SetActive(false);
+        elem.SetActive(!elem.activeSelf);
+    }
+
+    public static void CursorLock()
+    {
+        if (PauseMenu.IsActive)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         else
-            playerSpecificUI.SetActive(true);
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
     }
 }

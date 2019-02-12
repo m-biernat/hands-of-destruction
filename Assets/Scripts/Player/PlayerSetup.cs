@@ -90,26 +90,26 @@ public class PlayerSetup : NetworkBehaviour {
     {
         Player player = GameManager.GetPlayer(playerID);
 
-        byte teamRedSize = MatchInfo.instance.teamRedSize;
-        byte teamBlueSize = MatchInfo.instance.teamBlueSize;
+        byte teamRedSize = GameInfo.instance.teamRedSize;
+        byte teamBlueSize = GameInfo.instance.teamBlueSize;
 
         if (teamRedSize == teamBlueSize)
         {
             int rand = Random.Range(1, 3);
             player.teamID = (byte)rand;
-            MatchInfo.instance.IncrementTeamSize((byte)rand);
+            GameInfo.instance.IncrementTeamSize((byte)rand);
         }
 
         else if (teamRedSize > teamBlueSize)
         {
             player.teamID = 2;
-            MatchInfo.instance.IncrementTeamSize(2);
+            GameInfo.instance.IncrementTeamSize(2);
         }
 
         else if (teamBlueSize > teamRedSize)
         {
             player.teamID = 1;
-            MatchInfo.instance.IncrementTeamSize(1);
+            GameInfo.instance.IncrementTeamSize(1);
         }
     }
 
@@ -118,6 +118,6 @@ public class PlayerSetup : NetworkBehaviour {
     {
         Player player = GameManager.GetPlayer(playerID);
 
-        MatchInfo.instance.DecrementTeamSize(player.teamID);
+        GameInfo.instance.DecrementTeamSize(player.teamID);
     }
 }
