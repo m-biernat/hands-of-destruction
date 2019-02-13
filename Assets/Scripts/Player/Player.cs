@@ -55,6 +55,7 @@ public class Player : NetworkBehaviour
 
     public float jumpForce = 5f;
 
+    [SerializeField] private GameObject nameplate;
 
     [SerializeField] private ArmorManager armorManager;
     [SerializeField] private SkinnedMeshRenderer playerMesh;
@@ -79,14 +80,15 @@ public class Player : NetworkBehaviour
         {
             GetComponent<CameraManager>().SetupCameras();
             GameManager.SetSceneCameraActive(false);
-
-            wasEnabled = new bool[disableOnDeath.Length];
-            for (int i = 0; i < wasEnabled.Length; i++)
-            {
-                wasEnabled[i] = disableOnDeath[i].enabled;
-            }
         }
-        
+        else { nameplate.SetActive(true); }
+
+        wasEnabled = new bool[disableOnDeath.Length];
+        for (int i = 0; i < wasEnabled.Length; i++)
+        {
+            wasEnabled[i] = disableOnDeath[i].enabled;
+        }
+
         SetupArmor();
         SetDefaults();
 
@@ -113,12 +115,12 @@ public class Player : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            for (int i = 0; i < disableOnDeath.Length; i++)
-            {
-                disableOnDeath[i].enabled = false;
-            }
-
             playerUI.ToggleUI(playerUI.playerSpecificUI);
+        }
+
+        for (int i = 0; i < disableOnDeath.Length; i++)
+        {
+            disableOnDeath[i].enabled = false;
         }
 
         Collider col = GetComponent<Collider>();
@@ -156,12 +158,12 @@ public class Player : NetworkBehaviour
 
         if (isLocalPlayer)
         {
-            for (int i = 0; i < disableOnDeath.Length; i++)
-            {
-                disableOnDeath[i].enabled = wasEnabled[i];
-            }
-
             playerUI.ToggleUI(playerUI.playerSpecificUI);
+        }
+
+        for (int i = 0; i < disableOnDeath.Length; i++)
+        {
+            disableOnDeath[i].enabled = wasEnabled[i];
         }
 
         Collider col = GetComponent<Collider>();

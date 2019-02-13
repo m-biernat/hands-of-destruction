@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamRedSize: 0
   teamBlueSize: 0
+  playersCount: 0
   teamRedPoints: 0
   teamBluePoints: 0
   settings: {fileID: 0}

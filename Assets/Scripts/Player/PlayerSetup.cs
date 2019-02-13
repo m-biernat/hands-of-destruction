@@ -52,14 +52,14 @@ public class PlayerSetup : NetworkBehaviour {
 
     void OnDisable()
     {
-        if(isLocalPlayer)
+        if (isLocalPlayer)
         {
             Destroy(playerUIInstance);
             GameManager.SetSceneCameraActive(true);
-        } 
+        }
 
-        SrvTeamUnassing(transform.name);
-        GameManager.DeregisterPlayer(transform.name);   
+        TeamManager.UnassingPlayer(transform.name);
+        GameManager.DeregisterPlayer(transform.name);
     }
 
     private void DisableComponents()
@@ -88,36 +88,6 @@ public class PlayerSetup : NetworkBehaviour {
     [Command]
     private void CmdTeamAssign(string playerID)
     {
-        Player player = GameManager.GetPlayer(playerID);
-
-        byte teamRedSize = GameInfo.instance.teamRedSize;
-        byte teamBlueSize = GameInfo.instance.teamBlueSize;
-
-        if (teamRedSize == teamBlueSize)
-        {
-            int rand = Random.Range(1, 3);
-            player.teamID = (byte)rand;
-            GameInfo.instance.IncrementTeamSize((byte)rand);
-        }
-
-        else if (teamRedSize > teamBlueSize)
-        {
-            player.teamID = 2;
-            GameInfo.instance.IncrementTeamSize(2);
-        }
-
-        else if (teamBlueSize > teamRedSize)
-        {
-            player.teamID = 1;
-            GameInfo.instance.IncrementTeamSize(1);
-        }
-    }
-
-    [Server]
-    private void SrvTeamUnassing(string playerID)
-    {
-        Player player = GameManager.GetPlayer(playerID);
-
-        GameInfo.instance.DecrementTeamSize(player.teamID);
+        TeamManager.AssignPlayer(playerID);
     }
 }

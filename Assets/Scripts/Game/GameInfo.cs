@@ -6,6 +6,8 @@ public class GameInfo : NetworkBehaviour
     [SyncVar] public byte teamRedSize = 0;
     [SyncVar] public byte teamBlueSize = 0;
 
+    [SyncVar] public byte playersCount = 0;
+
     [SyncVar] public int teamRedPoints = 0;
     [SyncVar] public int teamBluePoints = 0;
 
@@ -25,11 +27,13 @@ public class GameInfo : NetworkBehaviour
     {
         if (teamID == 1) teamRedSize++;
         if (teamID == 2) teamBlueSize++;
+        playersCount++;
     }
 
     public void DecrementTeamSize(byte teamID)
     {
         if (teamID == 1) teamRedSize--;
         if (teamID == 2) teamBlueSize--;
+        playersCount--;
     }
 }
