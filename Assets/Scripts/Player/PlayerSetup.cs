@@ -29,6 +29,7 @@ public class PlayerSetup : NetworkBehaviour {
             playerUIInstance.name = playerUIPrefab.name;
 
             Player player = GetComponent<Player>();
+            GameManager.clientID = player.name;
             player.playerUI = playerUIInstance.GetComponent<PlayerUI>();
             player.playerUI.SetPlayerComponent(player);
 

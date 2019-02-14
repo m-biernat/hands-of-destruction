@@ -8,6 +8,7 @@ public class PlayerUI : MonoBehaviour
 
     public GameObject playerSpecificUI;
     public GameObject pauseMenu;
+    public GameObject scoreboard;
 
     void Start()
     {
@@ -22,6 +23,11 @@ public class PlayerUI : MonoBehaviour
             ToggleUI(pauseMenu);
             PauseMenu.IsActive = pauseMenu.activeSelf;
             CursorLock();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            ToggleUI(scoreboard);
         }
     }
 

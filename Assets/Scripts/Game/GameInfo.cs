@@ -21,6 +21,9 @@ public class GameInfo : NetworkBehaviour
             Debug.LogError("Too many instances of GameInfo!");
         else
             instance = this;
+
+        teamRedPoints = settings.pointsAtStart;
+        teamBluePoints = settings.pointsAtStart;
     }
 
     public void IncrementTeamSize(byte teamID)

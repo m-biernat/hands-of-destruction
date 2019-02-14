@@ -55,16 +55,16 @@ public class PlayerCombat : NetworkBehaviour
                 byte playerTeamID = GetComponent<Player>().teamID;
 
                 if (hitTeamID != playerTeamID || hitTeamID == 0)
-                    CmdPlayerHit(hit.collider.name, 10f);
+                    CmdPlayerHit(hit.collider.name, 10f, transform.name);
             }
         }
     }
 
     [Command]
-    private void CmdPlayerHit(string playerID, float damage)
+    private void CmdPlayerHit(string playerID, float damage, string sourceID)
     {
         Player player = GameManager.GetPlayer(playerID);
-        player.RpcTakeDamage(damage);
+        player.RpcTakeDamage(damage, sourceID);
 
         Debug.Log(playerID + " hit once.");
     }

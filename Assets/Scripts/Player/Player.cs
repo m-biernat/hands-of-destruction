@@ -55,6 +55,8 @@ public class Player : NetworkBehaviour
 
     public float jumpForce = 5f;
 
+    [HideInInspector] public int kills, deaths, score;
+
     [SerializeField] private GameObject nameplate;
 
     [SerializeField] private ArmorManager armorManager;
@@ -93,10 +95,12 @@ public class Player : NetworkBehaviour
         SetDefaults();
 
         animator = GetComponent<Animator>();
+
+        kills = 0; deaths = 0; score = 0;
     }
 
     [ClientRpc]
-    public void RpcTakeDamage(float damage)
+    public void RpcTakeDamage(float damage, string sourceID)
     {
         if (IsAlive)
         {
@@ -105,13 +109,20 @@ public class Player : NetworkBehaviour
         }
         if (Health <= 0f)
         {
-            Die();
+            Die(sourceID);
         }
     }
 
-    private void Die()
+    private void Die(string sourceID)
     {
         IsAlive = false;
+
+        Player sourcePlayer = GameManager.GetPlayer(sourceID);
+        if (sourcePlayer)
+        {
+            sourcePlayer.kills++;
+            sourcePlayer.score += GameInfo.instance.settings.pointsMultiplier;
+        }
 
         if (isLocalPlayer)
         {
@@ -129,6 +140,9 @@ public class Player : NetworkBehaviour
 
         Debug.Log(transform.name + " died.");
         animator.SetTrigger("Death");
+
+        deaths++;
+        score -= GameInfo.instance.settings.pointsMultiplier;
 
         StartCoroutine(Respawn());
     }

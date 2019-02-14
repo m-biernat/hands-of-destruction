@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsAtStart: 0
   pointsToComplete: 50
-  pointsMultiplier: 1
+  pointsMultiplier: 5
   teamAssignEnabled: 1
