@@ -3,17 +3,22 @@ using UnityEngine.Networking;
 
 public class GameInfo : NetworkBehaviour
 {
+    public static GameInfo instance;
+
     [SyncVar] public byte teamRedSize = 0;
     [SyncVar] public byte teamBlueSize = 0;
 
     [SyncVar] public byte playersCount = 0;
 
-    [SyncVar] public int teamRedPoints = 0;
-    [SyncVar] public int teamBluePoints = 0;
+    [SyncVar] public short teamRedPoints = 0;
+    [SyncVar] public short teamBluePoints = 0;
+
+    [SyncVar] public short timeCounter = 0;
 
     public GameSettings settings;
 
-    public static GameInfo instance;
+    public delegate void OnPlayerKilledCallback(string playerID, string sourceID);
+    public OnPlayerKilledCallback onPlayerKilledCallback;
 
     void Awake()
     {
@@ -22,6 +27,7 @@ public class GameInfo : NetworkBehaviour
         else
             instance = this;
 
+        // I have to move it to StageManager (later)
         teamRedPoints = settings.pointsAtStart;
         teamBluePoints = settings.pointsAtStart;
     }

@@ -26,9 +26,9 @@ public class PlayerUI : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ToggleUI(scoreboard);
-        }
+        { ToggleUI(scoreboard); }
+        else if (Input.GetKeyUp(KeyCode.Tab))
+        { ToggleUI(scoreboard); }
     }
 
     public void SetPlayerComponent(Player playerComponent)

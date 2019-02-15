@@ -122,6 +122,7 @@ public class Player : NetworkBehaviour
         {
             sourcePlayer.kills++;
             sourcePlayer.score += GameInfo.instance.settings.pointsMultiplier;
+            GameInfo.instance.onPlayerKilledCallback.Invoke(transform.name, sourceID);
         }
 
         if (isLocalPlayer)
@@ -142,7 +143,6 @@ public class Player : NetworkBehaviour
         animator.SetTrigger("Death");
 
         deaths++;
-        score -= GameInfo.instance.settings.pointsMultiplier;
 
         StartCoroutine(Respawn());
     }

@@ -3,19 +3,9 @@ using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager instance;
-
     public static Camera sceneCamera;
 
     public static string clientID;
-
-    void Awake()
-    {
-        if (instance) 
-            Debug.LogError("Too many instances of GameManager!");
-        else
-            instance = this;
-    }
 
     private const string PLAYER_ID_PREFIX = "Player_";
 
