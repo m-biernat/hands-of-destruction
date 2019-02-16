@@ -6,7 +6,7 @@ public class Killfeed : MonoBehaviour
 
 	void Start ()
     {
-        GameInfo.instance.onPlayerKilledCallback += OnKill;
+        GameManager.instance.onPlayerKilledCallback += OnKill;
 	}
 	
 	public void OnKill(string playerID, string sourceID)

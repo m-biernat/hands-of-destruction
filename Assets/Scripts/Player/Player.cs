@@ -121,8 +121,8 @@ public class Player : NetworkBehaviour
         if (sourcePlayer)
         {
             sourcePlayer.kills++;
-            sourcePlayer.score += GameInfo.instance.settings.pointsMultiplier;
-            GameInfo.instance.onPlayerKilledCallback.Invoke(transform.name, sourceID);
+            sourcePlayer.score += GameManager.instance.settings.scoreMultiplier;
+            GameManager.instance.onPlayerKilledCallback.Invoke(transform.name, sourceID);
         }
 
         if (isLocalPlayer)

@@ -6,40 +6,40 @@ public class TeamManager : MonoBehaviour
     {
         Player player = GameManager.GetPlayer(playerID);
 
-        if (!GameInfo.instance.settings.teamAssignEnabled)
+        if (!GameManager.instance.settings.teamAssignEnabled)
         {
             player.teamID = 0;
-            GameInfo.instance.IncrementTeamSize(0);
+            GameManager.instance.IncrementTeamSize(0);
 
             return;
         }
 
-        byte teamRedSize = GameInfo.instance.teamRedSize;
-        byte teamBlueSize = GameInfo.instance.teamBlueSize;
+        byte teamRedSize = GameManager.instance.teamRedSize;
+        byte teamBlueSize = GameManager.instance.teamBlueSize;
 
         if (teamRedSize == teamBlueSize)
         {
             int rand = Random.Range(1, 3);
             player.teamID = (byte)rand;
-            GameInfo.instance.IncrementTeamSize((byte)rand);
+            GameManager.instance.IncrementTeamSize((byte)rand);
         }
 
         else if (teamRedSize > teamBlueSize)
         {
             player.teamID = 2;
-            GameInfo.instance.IncrementTeamSize(2);
+            GameManager.instance.IncrementTeamSize(2);
         }
 
         else if (teamBlueSize > teamRedSize)
         {
             player.teamID = 1;
-            GameInfo.instance.IncrementTeamSize(1);
+            GameManager.instance.IncrementTeamSize(1);
         }
     }
 
     public static void UnassingPlayer(string playerID)
     {
         Player player = GameManager.GetPlayer(playerID);
-        GameInfo.instance.DecrementTeamSize(player.teamID);
+        GameManager.instance.DecrementTeamSize(player.teamID);
     }
 }

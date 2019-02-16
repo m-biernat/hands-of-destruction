@@ -5,8 +5,8 @@ public class HostGame : MonoBehaviour
 {
     private NetworkManager networkManager;
 
-    private string roomName = "";
-    private uint roomSize = 10;
+    public static string roomName = "";
+    public static uint roomSize = 10;
 
     private StatusText status;
 
@@ -73,8 +73,8 @@ public class HostGame : MonoBehaviour
     }
 
     public void SetRoomName(string roomName)
-    { this.roomName = roomName; }
+    { HostGame.roomName = roomName; }
 
     public void SetRoomSize(float roomSize)
-    { this.roomSize = (uint)roomSize; }
+    { HostGame.roomSize = (uint)roomSize; }
 }

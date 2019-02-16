@@ -8,11 +8,11 @@ public class TeamUI : MonoBehaviour
 
     [SerializeField] private Text playerCountText;
 
-    private GameInfo gameInfo;
+    private GameManager gameInfo;
 
     void Start()
     {
-        gameInfo = GameInfo.instance;
+        gameInfo = GameManager.instance;
     }
 
 	void LateUpdate ()

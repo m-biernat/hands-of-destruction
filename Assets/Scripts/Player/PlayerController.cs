@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (PauseMenu.IsActive)
+        if (GameManager.instance.lockControll || PauseMenu.IsActive)
         {
             velocity = movement.Velocity(0f, 0f);
             rotationY = cameras.CalculateRotationY(0f);

@@ -13,6 +13,9 @@ public class LobbyUI : MonoBehaviour {
     {
         currentView = defaultView;
         currentView.SetActive(true);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ChangeView(GameObject view)

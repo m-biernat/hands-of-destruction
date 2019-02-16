@@ -18,7 +18,7 @@ public class PlayerAnimation : MonoBehaviour
 
     void Update()
     {
-        if (PauseMenu.IsActive)
+        if (GameManager.instance.lockControll || PauseMenu.IsActive)
         {
             SetMovementDirection(0f, 0f);
             return;
