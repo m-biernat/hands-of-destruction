@@ -10,11 +10,14 @@ public class GameSettings : ScriptableObject
     [Space(10)]
     public int scoreMultiplier = 5;
 
+    [Space(10)]
+    public string objectiveText = "";
+
     [Header("Team manager settings")]
     public bool teamAssignEnabled = true;
 
     [Header("Duration of game stages (in seconds)")]
-    public short prepareTime = 30;
-    public short gameplayTime = 300;
+    public short prepareTime = 60;
+    public short gameplayTime = 600;
     public short completeTime = 15;
 }

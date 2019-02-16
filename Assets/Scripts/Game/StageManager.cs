@@ -23,6 +23,7 @@ public class StageManager : NetworkBehaviour
     private IEnumerator WaitForPlayers()
     {
         gameManager.lockControll = true;
+        gameManager.eventCode = 1; // ShowWaitingMessage
 
         gameManager.timeCounter = gameManager.settings.prepareTime;
         while (gameManager.timeCounter > 0)
@@ -39,7 +40,11 @@ public class StageManager : NetworkBehaviour
         {
             networkManager.matchMaker.SetMatchAttributes(matchInfo.networkId, false, 0, networkManager.OnDestroyMatch);
         }
-        // Show scoreboard RpcShowScoreboard()
+
+        gameManager.eventCode = 2; // HideWaitingMessage
+        yield return new WaitForSeconds(.5f);
+
+        gameManager.eventCode = 3; // ShowScoreboard
 
         gameManager.timeCounter = 10;
         while (gameManager.timeCounter > 0)
@@ -48,9 +53,12 @@ public class StageManager : NetworkBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-        // Close scoreboard RpcHideScoreboard()
+        gameManager.eventCode = 4; // HideScoreboard
+        yield return new WaitForSeconds(.5f);
 
-        // Show countdown ui RpcShowCountdown()
+        gameManager.eventCode = 5; // StartCountdown
+        yield return new WaitForSeconds(.5f);
+        gameManager.eventCode = 0;
         yield return new WaitForSeconds(3f);
 
         StartCoroutine(MaintainGameplay());
@@ -63,7 +71,7 @@ public class StageManager : NetworkBehaviour
         gameManager.timeCounter = gameManager.settings.gameplayTime;
         while (gameManager.timeCounter > 0)
         {
-            if (CheckGoal()) StartCoroutine(CompleteGame());
+            if (CheckGoal()) break;
             gameManager.timeCounter--;
             yield return new WaitForSeconds(1f);
         }
@@ -73,10 +81,16 @@ public class StageManager : NetworkBehaviour
 
     private IEnumerator CompleteGame()
     {
+        gameManager.timeCounter = 0;
         gameManager.lockControll = true;
-        // Show winner RpcShowWinner();
-        yield return new WaitForSeconds(10f);
-        // Show scoreboard RpcShowScoreboard()
+
+        gameManager.eventCode = 6; // ShowResultMessage
+        yield return new WaitForSeconds(5f);
+
+        gameManager.eventCode = 7; // HideResultMessage
+        yield return new WaitForSeconds(.5f);
+
+        gameManager.eventCode = 3; // ShowScoreboard
 
         gameManager.timeCounter = gameManager.settings.completeTime;
         while (gameManager.timeCounter > 0)

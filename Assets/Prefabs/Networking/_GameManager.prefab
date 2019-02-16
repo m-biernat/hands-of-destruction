@@ -19,9 +19,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4381032536039510}
+  - component: {fileID: 114441993277081458}
   - component: {fileID: 114335292018275670}
   - component: {fileID: 114152442234302914}
-  - component: {fileID: 114441993277081458}
   m_Layer: 0
   m_Name: _GameManager
   m_TagString: Untagged
@@ -71,6 +71,8 @@ MonoBehaviour:
   teamBluePoints: 0
   timeCounter: 0
   settings: {fileID: 0}
+  lockControll: 0
+  eventCode: 0
 --- !u!114 &114441993277081458
 MonoBehaviour:
   m_ObjectHideFlags: 1

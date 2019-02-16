@@ -29,7 +29,11 @@ public class GameManager : NetworkBehaviour
     public delegate void OnPlayerKilledCallback(string playerID, string sourceID);
     public OnPlayerKilledCallback onPlayerKilledCallback;
 
+    [HideInInspector]
     [SyncVar] public bool lockControll = false;
+
+    [HideInInspector]
+    [SyncVar] public short eventCode = 0;
 
     void Awake()
     {

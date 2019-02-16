@@ -9,9 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d860f16c5cbbae445a8c9bd7af595a9e, type: 3}
-  m_Name: New Game Setting
+  m_Name: Medium Map 01 Settings
   m_EditorClassIdentifier: 
-  pointsAtStart: 0
-  pointsToComplete: 50
-  pointsMultiplier: 5
+  pointsToComplete: 5
+  pointsMultiplier: 1
+  scoreMultiplier: 5
+  objectiveText: Get 50 points with your team!
   teamAssignEnabled: 1
+  prepareTime: 30
+  gameplayTime: 120
+  completeTime: 15

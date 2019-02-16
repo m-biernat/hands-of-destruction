@@ -3,17 +3,19 @@ using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
-    [HideInInspector]
     public static Player playerComponent;
 
     public GameObject playerSpecificUI;
     public GameObject pauseMenu;
     public GameObject scoreboard;
+    public Text objectiveText;
 
     void Start()
     {
         PauseMenu.IsActive = false;
         CursorLock();
+
+        objectiveText.text = GameManager.instance.settings.objectiveText;
     }
 
     void Update()
@@ -25,10 +27,13 @@ public class PlayerUI : MonoBehaviour
             CursorLock();
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        { ToggleUI(scoreboard); }
-        else if (Input.GetKeyUp(KeyCode.Tab))
-        { ToggleUI(scoreboard); }
+        if (GameManager.instance.eventCode != 3)
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            { scoreboard.SetActive(true); }
+            else if (Input.GetKeyUp(KeyCode.Tab))
+            { scoreboard.SetActive(false); }
+        }
     }
 
     public void SetPlayerComponent(Player playerComponent)
