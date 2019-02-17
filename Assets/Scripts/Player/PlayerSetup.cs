@@ -37,6 +37,9 @@ public class PlayerSetup : NetworkBehaviour {
             ClientSettings.selectedMagicID, ClientSettings.selectedArmorID);
 
             CmdTeamAssign(transform.name);
+
+            if (GameManager.instance.settings.teamAssignEnabled)
+                player.playerUI.teamUI.GetComponent<TeamUI>().SetTeamIndicator(player.teamID);
         }
         
         StartCoroutine(GetComponent<Player>().Setup());

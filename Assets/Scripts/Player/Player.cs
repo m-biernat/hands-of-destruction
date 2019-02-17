@@ -149,7 +149,8 @@ public class Player : NetworkBehaviour
 
     private IEnumerator Respawn()
     {
-        yield return new WaitForSeconds(3f);
+        float respawnTime = GameManager.instance.settings.respawnTime;
+        yield return new WaitForSeconds(respawnTime);
 
         Transform spawnPoint = NetworkManager.singleton.GetStartPosition();
         transform.position = spawnPoint.position;

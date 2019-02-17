@@ -11,6 +11,9 @@ public class GameSettings : ScriptableObject
     public int scoreMultiplier = 5;
 
     [Space(10)]
+    public float respawnTime = 3f;
+
+    [Space(10)]
     public string objectiveText = "";
 
     [Header("Team manager settings")]

@@ -8,11 +8,14 @@ public class TeamUI : MonoBehaviour
 
     [SerializeField] private Text playerCountText;
 
-    private GameManager gameInfo;
+    [SerializeField] private Image teamRedIndicator;
+    [SerializeField] private Image teamBlueIndicator;
+
+    private GameManager gameManager;
 
     void Start()
     {
-        gameInfo = GameManager.instance;
+        gameManager = GameManager.instance;
     }
 
 	void LateUpdate ()
@@ -23,15 +26,21 @@ public class TeamUI : MonoBehaviour
 
     private void SetScoreText()
     {
-        teamRedScoreText.text = gameInfo.teamRedPoints.ToString();
-        teamBlueScoreText.text = gameInfo.teamBluePoints.ToString();
+        teamRedScoreText.text = gameManager.teamRedPoints.ToString();
+        teamBlueScoreText.text = gameManager.teamBluePoints.ToString();
     }
 
     private void SetPlayerCountText()
     {
-        string teamRedSize = gameInfo.teamRedSize.ToString();
-        string teamBlueSize = gameInfo.teamBlueSize.ToString();
+        string teamRedSize = gameManager.teamRedSize.ToString();
+        string teamBlueSize = gameManager.teamBlueSize.ToString();
 
         playerCountText.text = teamRedSize + " vs " + teamBlueSize;
+    }
+
+    public void SetTeamIndicator(short teamID)
+    {
+        if (teamID == 1) teamRedIndicator.enabled = true;
+        if (teamID == 2) teamBlueIndicator.enabled = true;
     }
 }

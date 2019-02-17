@@ -8,12 +8,21 @@ public class PlayerUI : MonoBehaviour
     public GameObject playerSpecificUI;
     public GameObject pauseMenu;
     public GameObject scoreboard;
+
+    public GameObject teamUI;
+    public GameObject soloUI;
+
     public Text objectiveText;
 
     void Start()
     {
         PauseMenu.IsActive = false;
         CursorLock();
+
+        if (GameManager.instance.settings.teamAssignEnabled)
+            teamUI.SetActive(true);
+        else
+            soloUI.SetActive(true);
 
         objectiveText.text = GameManager.instance.settings.objectiveText;
     }
