@@ -45,13 +45,7 @@ public class StageManager : NetworkBehaviour
         yield return new WaitForSeconds(.5f);
 
         gameManager.eventCode = 3; // ShowScoreboard
-
-        gameManager.timeCounter = 10;
-        while (gameManager.timeCounter > 0)
-        {
-            gameManager.timeCounter--;
-            yield return new WaitForSeconds(1f);
-        }
+        yield return new WaitForSeconds(5f);
 
         gameManager.eventCode = 4; // HideScoreboard
         yield return new WaitForSeconds(.5f);
@@ -61,7 +55,10 @@ public class StageManager : NetworkBehaviour
         gameManager.eventCode = 0;
         yield return new WaitForSeconds(3f);
 
-        StartCoroutine(MaintainGameplay());
+        if (gameManager.playersCount == 1)
+            StartCoroutine(CompleteGame());
+        else
+            StartCoroutine(MaintainGameplay());
     }
 
     private IEnumerator MaintainGameplay()
@@ -83,6 +80,8 @@ public class StageManager : NetworkBehaviour
     {
         gameManager.timeCounter = 0;
         gameManager.lockControll = true;
+
+        yield return new WaitForSeconds(1f);
 
         gameManager.eventCode = 6; // ShowResultMessage
         yield return new WaitForSeconds(5f);

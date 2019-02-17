@@ -158,6 +158,8 @@ public class Player : NetworkBehaviour
 
         yield return new WaitForSeconds(0.1f);
 
+        animator.SetTrigger("Respawn");
+
         SetDefaults();
     }
 
