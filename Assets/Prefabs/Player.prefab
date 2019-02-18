@@ -248,6 +248,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1318413531837594
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4795933920368312}
+  m_Layer: 0
+  m_Name: MagicSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1324604467125796
 GameObject:
   m_ObjectHideFlags: 1
@@ -1288,6 +1303,7 @@ Transform:
   m_Children:
   - {fileID: 4865329636755874}
   - {fileID: 4851499368646808}
+  - {fileID: 4795933920368312}
   m_Father: {fileID: 4210011660949332}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1460,6 +1476,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4559142139571632}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4795933920368312
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1318413531837594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.001, y: 0.0005, z: 0.0002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4552896351571130}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4826108833845722
 Transform:
@@ -1790,6 +1819,9 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 1335
+  magicPrefab: {fileID: 1567936603410664, guid: db668d2c8a964e14880aa2ea70096b90,
+    type: 2}
+  magicSpawn: {fileID: 4795933920368312}
 --- !u!114 &114279624519267620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1839,6 +1871,9 @@ MonoBehaviour:
   magickaRegen: 10
   sprintCost: 20
   jumpForce: 5
+  kills: 0
+  deaths: 0
+  score: 0
   nameplate: {fileID: 1116138494510888}
   armorManager: {fileID: 11400000, guid: 810953eed8f45304ba0d2e114757f02a, type: 2}
   playerMesh: {fileID: 137571003421863182}

@@ -86,17 +86,22 @@ public class PlayerController : MonoBehaviour
             { movement.Crouch(); }
         }
 
-        if ((Input.GetButton("Mouse Left"))) { holdTime += Time.deltaTime; }
+        if ((Input.GetButton("Mouse Left")))
+        {
+            holdTime += Time.deltaTime;
+
+            if (holdTime >= .5f)
+            {
+                combat.SpecialAttack();
+                holdTime = 0f;
+            }
+        }
 
         if (Input.GetButtonUp("Mouse Left"))
         {
             if (holdTime > 0f && holdTime <= .2f)
             {
                 combat.MainAttack();
-            }
-            if (holdTime >= .5f)
-            {
-                combat.SpecialAttack();
             }
             holdTime = 0f;
         }
@@ -106,10 +111,6 @@ public class PlayerController : MonoBehaviour
             combat.Block();
             movement.Walk();
             holdTime = 0f;
-            if (Input.GetButtonDown("Mouse Left"))
-            {
-                combat.CounterAttack();
-            }
         }
     }
 

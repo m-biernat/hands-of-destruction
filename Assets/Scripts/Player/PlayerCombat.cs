@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using System.Collections;
 
 public class PlayerCombat : NetworkBehaviour
 {
@@ -9,6 +10,9 @@ public class PlayerCombat : NetworkBehaviour
     private float tempRange = 10f;
 
     [SerializeField] private LayerMask mask;
+
+    public GameObject magicPrefab;
+    public Transform magicSpawn;
 
     void Start()
     {
@@ -23,14 +27,20 @@ public class PlayerCombat : NetworkBehaviour
 
     public void MainAttack()
     {
-        animate.Trigger("MainAttack");
-        Attack();  
+        if (!animate.HasAnimationsEnded())
+        {
+            animate.Trigger("MainAttack");
+            StartCoroutine(Attack());
+        }
     }
 
     public void SpecialAttack()
     {
-        animate.Trigger("SpecialAttack");
-        Attack();
+        if (!animate.HasAnimationsEnded())
+        {
+            animate.Trigger("SpecialAttack");
+            StartCoroutine(Attack());
+        }   
     }
 
     public void Block()
@@ -38,11 +48,18 @@ public class PlayerCombat : NetworkBehaviour
         animate.SetBlock(true);
     }
 
-    public void CounterAttack()
+    public IEnumerator Attack()
     {
-        Attack();
+        yield return new WaitForSeconds(.5f);
+
+        GameObject magic = Instantiate(magicPrefab, magicSpawn.position, cam.transform.rotation);
+
+        magic.GetComponent<Rigidbody>().velocity = magic.transform.forward * 12f;
+
+        Destroy(magic, 2);
     }
 
+    /*
     [Client]
     public void Attack()
     {
@@ -68,4 +85,5 @@ public class PlayerCombat : NetworkBehaviour
 
         Debug.Log(playerID + " hit once.");
     }
+    */
 }

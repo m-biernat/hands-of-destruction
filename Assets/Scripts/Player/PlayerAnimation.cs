@@ -53,4 +53,11 @@ public class PlayerAnimation : MonoBehaviour
     {
         animator.SetBool("isBlocking", isBlocking);
     }
+
+    public bool HasAnimationsEnded()
+    {
+        return animator.GetCurrentAnimatorStateInfo(1).IsName("MainAttack") 
+         || animator.GetCurrentAnimatorStateInfo(1).IsName("SpecialAttack");
+    }
+
 }
