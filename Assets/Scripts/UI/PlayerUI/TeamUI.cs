@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 
 public class TeamUI : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class TeamUI : MonoBehaviour
 
     private GameManager gameManager;
 
-    void Start()
+    void OnEnable()
     {
         gameManager = GameManager.instance;
+
+        StartCoroutine(SetTeamIndicator());
     }
 
 	void LateUpdate ()
@@ -38,8 +41,12 @@ public class TeamUI : MonoBehaviour
         playerCountText.text = teamRedSize + " vs " + teamBlueSize;
     }
 
-    public void SetTeamIndicator(short teamID)
+    private IEnumerator SetTeamIndicator()
     {
+        yield return new WaitForSeconds(1f);
+
+        short teamID = GameManager.GetPlayer(GameManager.clientID).teamID;
+
         if (teamID == 1) teamRedIndicator.enabled = true;
         if (teamID == 2) teamBlueIndicator.enabled = true;
     }

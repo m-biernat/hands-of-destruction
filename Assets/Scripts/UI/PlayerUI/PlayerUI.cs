@@ -19,11 +19,6 @@ public class PlayerUI : MonoBehaviour
         PauseMenu.IsActive = false;
         CursorLock();
 
-        if (GameManager.instance.settings.teamAssignEnabled)
-            teamUI.SetActive(true);
-        else
-            soloUI.SetActive(true);
-
         objectiveText.text = GameManager.instance.settings.objectiveText;
     }
 

@@ -39,7 +39,9 @@ public class PlayerSetup : NetworkBehaviour {
             CmdTeamAssign(transform.name);
 
             if (GameManager.instance.settings.teamAssignEnabled)
-                player.playerUI.teamUI.GetComponent<TeamUI>().SetTeamIndicator(player.teamID);
+                player.playerUI.teamUI.SetActive(true);
+            else
+                player.playerUI.soloUI.SetActive(true);
         }
         
         StartCoroutine(GetComponent<Player>().Setup());

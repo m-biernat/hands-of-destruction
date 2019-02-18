@@ -13,7 +13,7 @@ public class SoloUI : MonoBehaviour
 
     private Player player;
 
-    void Start()
+    void OnEnable()
     {
         gameManager = GameManager.instance;
 
