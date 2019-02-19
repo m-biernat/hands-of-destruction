@@ -7,12 +7,14 @@ public class PlayerCombat : NetworkBehaviour
     private GameObject cam;
     private PlayerAnimation animate;
 
-    private float tempRange = 10f;
+    //private float tempRange = 10f;
 
-    [SerializeField] private LayerMask mask;
+    //[SerializeField] private LayerMask mask;
 
-    public GameObject magicPrefab;
-    public Transform magicSpawn;
+    private Magic magic;
+
+    public GameObject spellPrefab;
+    public Transform spellSpawnPoint;
 
     void Start()
     {
@@ -20,26 +22,21 @@ public class PlayerCombat : NetworkBehaviour
         animate = GetComponent<PlayerAnimation>();
     }
 
-    void Update()
-    {
-        Debug.DrawRay(cam.transform.position, cam.transform.TransformDirection(Vector3.forward) * tempRange, Color.green);
-    }
-
     public void MainAttack()
     {
-        if (!animate.HasAnimationsEnded())
+        if (animate.HasAnimationsEnded())
         {
             animate.Trigger("MainAttack");
-            StartCoroutine(Attack());
+            StartCoroutine(Attack(spellPrefab, .5f, 18f, 2f));
         }
     }
 
     public void SpecialAttack()
     {
-        if (!animate.HasAnimationsEnded())
+        if (animate.HasAnimationsEnded())
         {
             animate.Trigger("SpecialAttack");
-            StartCoroutine(Attack());
+            StartCoroutine(Attack(spellPrefab, 1f, 12f, 2f));
         }   
     }
 
@@ -48,15 +45,15 @@ public class PlayerCombat : NetworkBehaviour
         animate.SetBlock(true);
     }
 
-    public IEnumerator Attack()
+    public IEnumerator Attack(GameObject spellPrefab, float delay, float speed, float duration)
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(delay);
 
-        GameObject magic = Instantiate(magicPrefab, magicSpawn.position, cam.transform.rotation);
+        GameObject spell = Instantiate(spellPrefab, spellSpawnPoint.position, cam.transform.rotation);
 
-        magic.GetComponent<Rigidbody>().velocity = magic.transform.forward * 12f;
+        spell.GetComponent<Rigidbody>().velocity = spell.transform.forward * speed;
 
-        Destroy(magic, 2);
+        Destroy(spell, duration);
     }
 
     /*

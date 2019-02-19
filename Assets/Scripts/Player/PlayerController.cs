@@ -99,10 +99,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonUp("Mouse Left"))
         {
-            if (holdTime > 0f && holdTime <= .2f)
-            {
-                combat.MainAttack();
-            }
+            combat.MainAttack();
             holdTime = 0f;
         }
 
