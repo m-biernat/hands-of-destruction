@@ -53,4 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneNames:
   - Debug
-  - Medium Map 01
+  - Map 01
+  - Map 02
