@@ -1,63 +1,19 @@
 fileFormatVersion: 2
-guid: 4f1082e82c4e3c149922bb7fc52bd7c3
+guid: 3ed254acadd00644d80e2ddafd0c9258
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cliff01
-    100002: Cliff02
-    100004: //RootNode
-    100006: Mount01
-    100008: Mount02
-    100010: Mount03
-    100012: Mountains01
-    100014: Mountains02
-    100016: Plains01
-    100018: Plains02
-    400000: Cliff01
-    400002: Cliff02
-    400004: //RootNode
-    400006: Mount01
-    400008: Mount02
-    400010: Mount03
-    400012: Mountains01
-    400014: Mountains02
-    400016: Plains01
-    400018: Plains02
-    2100000: Cliff01
-    2100002: Cliff02
-    2100004: Plains
-    2100006: Mountains
-    2100008: Mount
-    2300000: Cliff01
-    2300002: Cliff02
-    2300004: Mount01
-    2300006: Mount02
-    2300008: Mount03
-    2300010: Mountains01
-    2300012: Mountains02
-    2300014: Plains01
-    2300016: Plains02
-    3300000: Cliff01
-    3300002: Cliff02
-    3300004: Mount01
-    3300006: Mount02
-    3300008: Mount03
-    3300010: Mountains01
-    3300012: Mountains02
-    3300014: Plains01
-    3300016: Plains02
-    4300000: Cliff02
-    4300002: Cliff01
-    4300004: Plains02
-    4300006: Plains01
-    4300008: Mountains02
-    4300010: Mountains01
-    4300012: Mount03
-    4300014: Mount02
-    4300016: Mount01
+    100000: //RootNode
+    400000: //RootNode
+    2100000: unnamed
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Terrain
+    7400000: Default Take
+    9500000: //RootNode
   externalObjects: {}
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -107,7 +63,7 @@ ModelImporter:
     secondaryUVPackMargin: 8
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
