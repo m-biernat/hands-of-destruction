@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicManager : MonoBehaviour {
+[CreateAssetMenu(fileName = "Magic Manager", menuName = "Equipment/Manager/Magic Manager")]
+public class MagicManager : ScriptableObject
+{
+    public List<Magic> magicList;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public Magic GetMagic(byte magicID)
+    {
+        if (magicList[magicID])
+            return magicList[magicID];
+        else
+            return magicList[0];
+    }
 }

@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 54165243214276922}
   - component: {fileID: 114050067022146240}
   - component: {fileID: 96231812966038192}
+  - component: {fileID: 114359825805290142}
+  - component: {fileID: 114918781353192022}
   m_Layer: 0
   m_Name: Debug Magic
   m_TagString: Untagged
@@ -214,6 +216,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b8ef96c2ef852489247fba44dc5ca4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114359825805290142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1567936603410664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 219
+    i1: 102
+    i2: 141
+    i3: 44
+    i4: 138
+    i5: 150
+    i6: 78
+    i7: 20
+    i8: 136
+    i9: 10
+    i10: 162
+    i11: 234
+    i12: 112
+    i13: 9
+    i14: 107
+    i15: 144
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
+--- !u!114 &114918781353192022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1567936603410664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!135 &135744796362665132
 SphereCollider:
   m_ObjectHideFlags: 1

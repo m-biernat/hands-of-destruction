@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
             { movement.Crouch(); }
         }
 
-        if ((Input.GetButton("Mouse Left")))
+        if (Input.GetButton("Mouse Left") && !Input.GetButton("Mouse Right"))
         {
             holdTime += Time.deltaTime;
 
@@ -97,9 +97,10 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonUp("Mouse Left"))
+        if (Input.GetButtonUp("Mouse Left") && !Input.GetButton("Mouse Right"))
         {
-            combat.MainAttack();
+            if (holdTime <= 1f)
+                combat.MainAttack();
             holdTime = 0f;
         }
 
@@ -109,6 +110,8 @@ public class PlayerController : MonoBehaviour
             movement.Walk();
             holdTime = 0f;
         }
+
+        combat.RegenerateMagicka();
     }
 
     void FixedUpdate()

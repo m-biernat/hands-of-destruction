@@ -63,6 +63,8 @@ public class Player : NetworkBehaviour
     [SerializeField] private SkinnedMeshRenderer playerMesh;
     private Armor armor;
 
+    [SerializeField] private MagicManager magicManager;
+
     [SerializeField]
     private Behaviour[] disableOnDeath;
     private bool[] wasEnabled;
@@ -92,6 +94,7 @@ public class Player : NetworkBehaviour
         }
 
         SetupArmor();
+        SetupMagic();
         SetDefaults();
 
         animator = GetComponent<Animator>();
@@ -139,7 +142,7 @@ public class Player : NetworkBehaviour
         col.attachedRigidbody.useGravity = false;
         col.enabled = false;
 
-        Debug.Log(transform.name + " died.");
+        Debug.Log("Player " + playerName+ " has been killed by " + sourcePlayer.playerName + "!");
         animator.SetTrigger("Death");
 
         deaths++;
@@ -205,5 +208,11 @@ public class Player : NetworkBehaviour
 
         armorManager.AttachMesh(playerMesh, armor.mesh);
         armorManager.SetTeamColor(playerMesh, teamID);
+    }
+
+    private void SetupMagic()
+    {
+        PlayerCombat playerCombat = GetComponent<PlayerCombat>();
+        playerCombat.SetMagic(magicManager.GetMagic(magicID));
     }
 }
