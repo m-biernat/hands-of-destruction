@@ -131,6 +131,7 @@ public class Player : NetworkBehaviour
         if (isLocalPlayer)
         {
             playerUI.ToggleUI(playerUI.playerSpecificUI);
+            playerUI.effectsUI.ShowDeathScreen(sourcePlayer.playerName);
         }
 
         for (int i = 0; i < disableOnDeath.Length; i++)
@@ -178,6 +179,7 @@ public class Player : NetworkBehaviour
 
         if (isLocalPlayer)
         {
+            playerUI.effectsUI.ClearEffects();
             playerUI.ToggleUI(playerUI.playerSpecificUI);
         }
 

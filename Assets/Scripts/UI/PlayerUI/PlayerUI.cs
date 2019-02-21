@@ -14,6 +14,8 @@ public class PlayerUI : MonoBehaviour
 
     public Text objectiveText;
 
+    public EffectsUI effectsUI;
+
     void Start()
     {
         PauseMenu.IsActive = false;
