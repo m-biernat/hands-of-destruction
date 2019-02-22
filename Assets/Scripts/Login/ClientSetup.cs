@@ -81,7 +81,7 @@ public class ClientSetup : MonoBehaviour
 
     public void SetRandomMagicID()
     {
-        ClientSettings.selectedMagicID = (byte)Random.Range(2, 2);
+        ClientSettings.selectedMagicID = (byte)Random.Range(1, 3);
     }
 
     public void SetRandomArmorID()

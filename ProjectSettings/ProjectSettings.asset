@@ -16,7 +16,7 @@ PlayerSettings:
   productName: Hands of Destruction
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
+  m_SplashScreenBackgroundColor: {r: 0.22745098, g: 0.22745098, b: 0.22745098, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
@@ -255,7 +255,7 @@ PlayerSettings:
     height: 180
     banner: {fileID: 0}
   androidGamepadSupportLevel: 0
-  resolutionDialogBanner: {fileID: 2800000, guid: 8daff66e25b5577479c6c56bd3a3254a,
+  resolutionDialogBanner: {fileID: 2800000, guid: 088ed9f1782affb4c8bcd589a5316404,
     type: 3}
   m_BuildTargetIcons: []
   m_BuildTargetPlatformIcons: []

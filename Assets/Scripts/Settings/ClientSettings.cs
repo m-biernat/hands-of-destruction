@@ -7,7 +7,7 @@ public static class ClientSettings
     private const float DEFAULT_M_SENSITIVITY = 6f;
     private const byte DEFAULT_CAMERA_MODE = 2;
 
-    private const sbyte DEFAULT_BRIGHTNESS = 0;
+    private const byte DEFAULT_VOLUME = 0;
 
 
     public static string playerName = DEFAULT_PLAYER_NAME;
@@ -17,7 +17,7 @@ public static class ClientSettings
     public static float mouseSensitivity = DEFAULT_M_SENSITIVITY;
     public static byte defaultCamera = DEFAULT_CAMERA_MODE;
 
-    public static sbyte brightness = DEFAULT_BRIGHTNESS;
+    public static byte volume = DEFAULT_VOLUME;
 
 
     public static void Load()
@@ -27,7 +27,7 @@ public static class ClientSettings
             playerName = PlayerPrefs.GetString("playerName");
             mouseSensitivity = PlayerPrefs.GetFloat("mouseSensitivity");
             defaultCamera = (byte)PlayerPrefs.GetInt("defaultCamera");
-            brightness = (sbyte)PlayerPrefs.GetInt("brightness");
+            volume = (byte)PlayerPrefs.GetInt("volume");
         }
     }
 
@@ -36,13 +36,13 @@ public static class ClientSettings
         PlayerPrefs.SetString("playerName", playerName);
         PlayerPrefs.SetFloat("mouseSensitivity", mouseSensitivity);
         PlayerPrefs.SetInt("defaultCamera", defaultCamera);
-        PlayerPrefs.SetInt("brightness", brightness);
+        PlayerPrefs.SetInt("volume", volume);
     }
 
     public static void LoadDefaults()
     {
         mouseSensitivity = DEFAULT_M_SENSITIVITY;
         defaultCamera = DEFAULT_CAMERA_MODE;
-        brightness = DEFAULT_BRIGHTNESS;
+        volume = DEFAULT_VOLUME;
     }
 }

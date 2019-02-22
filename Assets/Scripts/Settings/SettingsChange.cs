@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class SettingsChange : MonoBehaviour
 {
     [SerializeField] private Slider mouseSensitivitySlider;
-    [SerializeField] private Slider brightnessSlider;
+    [SerializeField] private Slider volumeSlider;
 
     [SerializeField] private Dropdown cameraModeDropdown;
 
@@ -18,8 +18,8 @@ public class SettingsChange : MonoBehaviour
         if (mouseSensitivitySlider)
             mouseSensitivitySlider.value = ClientSettings.mouseSensitivity;
 
-        if (brightnessSlider)
-            brightnessSlider.value = ClientSettings.brightness;
+        if (volumeSlider)
+            volumeSlider.value = ClientSettings.volume;
 
         if (cameraModeDropdown)
             cameraModeDropdown.value = ClientSettings.defaultCamera;
@@ -47,9 +47,9 @@ public class SettingsChange : MonoBehaviour
         ClientSettings.mouseSensitivity = Mathf.Floor(mouseSensitivity * 10f) / 10f;
     }
 
-    public void SetBrightness(float brightness)
+    public void SetVolume(float volume)
     {
-        ClientSettings.brightness = (sbyte)brightness;
+        ClientSettings.volume = (byte)volume;
     }
 
     public void SetCameraMode(int cameraMode)

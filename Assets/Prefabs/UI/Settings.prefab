@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 114337065008113942}
   - component: {fileID: 114469202078184996}
   m_Layer: 5
-  m_Name: Brightness_Slider
+  m_Name: Volume_Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 222163292414674338}
   - component: {fileID: 114885389194481500}
   m_Layer: 5
-  m_Name: Brightness_Text
+  m_Name: Volume_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,7 +1081,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 224742504060272260}
   m_HandleRect: {fileID: 224856123437228778}
   m_Direction: 0
-  m_MinValue: -10
+  m_MinValue: 0
   m_MaxValue: 10
   m_WholeNumbers: 1
   m_Value: 0
@@ -1100,7 +1100,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 114345176706296412}
-        m_MethodName: SetBrightness
+        m_MethodName: SetVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1124,7 +1124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivitySlider: {fileID: 114606306354726928}
-  brightnessSlider: {fileID: 114337065008113942}
+  volumeSlider: {fileID: 114337065008113942}
   cameraModeDropdown: {fileID: 114375751062903708}
 --- !u!114 &114370915448300128
 MonoBehaviour:
@@ -1943,7 +1943,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: BRIGHTNESS
+  m_Text: VOLUME
 --- !u!114 &114958470977576638
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2712,8 +2712,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 112, y: -0.0000066757}
-  m_SizeDelta: {x: 26.2, y: 20}
+  m_AnchoredPosition: {x: 112, y: 0}
+  m_SizeDelta: {x: 28, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224742504060272260
 RectTransform:
