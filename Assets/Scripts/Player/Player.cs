@@ -148,7 +148,7 @@ public class Player : NetworkBehaviour
 
         deaths++;
 
-        StartCoroutine(Respawn());
+        if (GameManager.instance.eventCode == 0) StartCoroutine(Respawn());
     }
 
     private IEnumerator Respawn()
