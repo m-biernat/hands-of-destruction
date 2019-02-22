@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GameModeSelect : MonoBehaviour
 {
     private Dropdown dropdown;
 
-    [SerializeField] private GameModeList gameModes;
+    [SerializeField] private GameModeList gameModeList;
+
+    private Dictionary<string, string> gameModes;
 
     private string selectedGameMode;
 
@@ -14,9 +17,10 @@ public class GameModeSelect : MonoBehaviour
 
     void Start()
     {
-        dropdown = GetComponent<Dropdown>();
+        gameModes = gameModeList.GetGameModes();
 
-        dropdown.AddOptions(gameModes.GetGameModeList());
+        dropdown = GetComponent<Dropdown>();
+        dropdown.AddOptions(gameModeList.GetGameModeList());
 
         Label = dropdown.options[0].text;
         Func = dropdown.options[1].text;
@@ -38,5 +42,10 @@ public class GameModeSelect : MonoBehaviour
     {
         int rand = Random.Range(2, dropdown.options.Count - 1);
         selectedGameMode = dropdown.options[rand].text;
+    }
+
+    public string GetSceneName(string gameModeName)
+    {
+        return gameModes[gameModeName];
     }
 }

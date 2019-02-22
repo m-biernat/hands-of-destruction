@@ -43,8 +43,7 @@ public class JoinGame : MonoBehaviour
 
         if (selected == selection.Func)
         {
-            selection.SetRandom();
-            selected = selection.GetValue();
+            selected = "";
         }
 
         networkManager.matchMaker.ListMatches(0, 10, selected, true, 0, 0, OnMatchList);
@@ -80,7 +79,7 @@ public class JoinGame : MonoBehaviour
         }
         else
         {
-            networkManager.onlineScene = selected;
+            networkManager.onlineScene = selection.GetSceneName(selected);
             networkManager.networkAddress = networkAddress;
             networkManager.StartClient();
             StartCoroutine(WaitForJoin());

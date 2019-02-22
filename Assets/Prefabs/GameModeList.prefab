@@ -51,7 +51,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed371303e601ad846bb7dca265a541b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNames:
-  - Debug
-  - Map 01
-  - Map 02
+  gameModes:
+  - modeName: Debug
+    sceneName: Debug
+    inDevelopment: 1
+  - modeName: Destruction Derby
+    sceneName: Map 01
+    inDevelopment: 0
+  - modeName: Master Exploder
+    sceneName: Map 02
+    inDevelopment: 0

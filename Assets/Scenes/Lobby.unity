@@ -464,6 +464,12 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 32020022}
   m_CullTransparentMesh: 0
+--- !u!114 &42000878 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114640798020396702, guid: b63e9f5407b4d77488cbff113ab6d161,
+    type: 2}
+  m_PrefabInternal: {fileID: 602929920}
+  m_Script: {fileID: 227461547, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
 --- !u!1 &101875067
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,6 +2026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultView: {fileID: 1833569496}
   status: {fileID: 1225580355}
+  networkGUI: {fileID: 42000878}
 --- !u!114 &435226258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3093,7 +3100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff7c50f1590a744f9394f1cfce7cf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameModes: {fileID: 114935520279083318, guid: 0df94bf11be3bfb408174c993a8c05be,
+  gameModeList: {fileID: 114935520279083318, guid: 0df94bf11be3bfb408174c993a8c05be,
     type: 2}
 --- !u!1 &661156342
 GameObject:
@@ -3513,7 +3520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ff7c50f1590a744f9394f1cfce7cf2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameModes: {fileID: 114935520279083318, guid: 0df94bf11be3bfb408174c993a8c05be,
+  gameModeList: {fileID: 114935520279083318, guid: 0df94bf11be3bfb408174c993a8c05be,
     type: 2}
 --- !u!1 &730332222
 GameObject:
