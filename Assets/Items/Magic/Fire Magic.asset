@@ -15,5 +15,13 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 65d2a1e33c615e94080853490c3a56a8, type: 3}
   color: {r: 1, g: 0.3823665, b: 0, a: 1}
   description: Throw fireballs at the enemy, finish them with meteor.
-  mainAttack: {fileID: 0}
-  specialAttack: {fileID: 0}
+  mainAttack: {fileID: 1567936603410664, guid: 47ec274086c4a4d4d9b5851ad596aa7a, type: 2}
+  specialAttack: {fileID: 1567936603410664, guid: ed83deec48f99234987b740ba417a932,
+    type: 2}
+  mainAttackDamage: 20
+  mainAttackSpeed: 18
+  mainAttackDuration: 2
+  specialAttackDamage: 40
+  specialAttackMagickaCost: 30
+  specialAttackSpeed: 12
+  specialAttackDuration: 2
