@@ -18,7 +18,10 @@ MonoBehaviour:
   mainAttack: {fileID: 1567936603410664, guid: db668d2c8a964e14880aa2ea70096b90, type: 2}
   specialAttack: {fileID: 1567936603410664, guid: db668d2c8a964e14880aa2ea70096b90,
     type: 2}
+  mainAttackDamage: 20
   mainAttackSpeed: 18
   mainAttackDuration: 2
-  specialAttackSpeed: 6
+  specialAttackDamage: 40
+  specialAttackMagickaCost: 30
+  specialAttackSpeed: 18
   specialAttackDuration: 1

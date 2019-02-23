@@ -16,7 +16,7 @@ MonoBehaviour:
   color: {r: 0.74509805, g: 0.19607843, b: 0.19607843, a: 1}
   description: Fills user with might giving solid health bonus
   mesh: {fileID: 137681312911897696, guid: 004d1a6e4c064e74aa41d5909986e46f, type: 2}
-  healthModifier: 1.5
+  healthModifier: 0.5
   staminaModifier: 0
   magickaModifier: 0
   staminaRegenModifier: 0

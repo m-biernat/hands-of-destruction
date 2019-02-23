@@ -15,8 +15,8 @@ MonoBehaviour:
   pointsMultiplier: 1
   scoreMultiplier: 5
   respawnTime: 5
-  objectiveText: Get 50 points with your team!
+  objectiveText: Get 25 points with your team!
   teamAssignEnabled: 1
-  prepareTime: 30
-  gameplayTime: 120
+  prepareTime: 60
+  gameplayTime: 600
   completeTime: 15

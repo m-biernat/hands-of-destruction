@@ -39,7 +39,7 @@ public class PlayerCombat : NetworkBehaviour
         {
             animate.Trigger("MainAttack");
             StartCoroutine(DelayAttack(.4f, "MainAttack", magic.mainAttackDamage, 
-                magic.mainAttackSpeed, magic.mainAttackDuration));
+                magic.mainAttackVelocity, magic.mainAttackDuration));
             lastAttackTime = Time.time;
         }
     }
@@ -52,7 +52,7 @@ public class PlayerCombat : NetworkBehaviour
         {
             animate.Trigger("SpecialAttack");
             StartCoroutine(DelayAttack(.75f, "SpecialAttack", magic.specialAttackDamage,
-                magic.specialAttackSpeed, magic.specialAttackDuration));
+                magic.specialAttackVelocity, magic.specialAttackDuration));
             player.Magicka -= magic.specialAttackMagickaCost;
             lastSpecialAttackTime = Time.time;
         }
