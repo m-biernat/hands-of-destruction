@@ -3411,6 +3411,7 @@ MonoBehaviour:
   effectsImage: {fileID: 114739654181832672}
   deathScreen: {fileID: 1232182804626700}
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  damageColor: {r: 0.7254902, g: 0.20392157, b: 0.20392157, a: 0.33333334}
   deathScreenColor: {r: 0.7254902, g: 0.20392157, b: 0.20392157, a: 0.6666667}
 --- !u!114 &114383148617828242
 MonoBehaviour:

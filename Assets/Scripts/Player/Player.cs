@@ -109,6 +109,7 @@ public class Player : NetworkBehaviour
         {
             Health -= damage;
             animator.SetTrigger("TakeDamage");
+            if (isLocalPlayer) playerUI.effectsUI.DamageEffect();
         }
         if (Health <= 0f)
         {
