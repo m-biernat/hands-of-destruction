@@ -133,6 +133,11 @@ public class Player : NetworkBehaviour
         {
             playerUI.ToggleUI(playerUI.playerSpecificUI);
             playerUI.effectsUI.ShowDeathScreen(sourcePlayer.playerName);
+
+            PlayerCombat playerCombat = GetComponent<PlayerCombat>();
+
+            if (playerCombat.magicShield.activeSelf)
+                playerCombat.CmdToggleMagicShield(false);
         }
 
         for (int i = 0; i < disableOnDeath.Length; i++)

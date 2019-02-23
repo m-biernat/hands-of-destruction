@@ -16,12 +16,16 @@ public class PlayerUI : MonoBehaviour
 
     public EffectsUI effectsUI;
 
+    private Canvas canvas;
+
     void Start()
     {
         PauseMenu.IsActive = false;
         CursorLock();
 
         objectiveText.text = GameManager.instance.settings.objectiveText;
+
+        canvas = GetComponent<Canvas>();
     }
 
     void Update()
@@ -35,10 +39,15 @@ public class PlayerUI : MonoBehaviour
 
         if (GameManager.instance.eventCode != 3)
         {
-            if (Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetButtonDown("Show Scoreboard"))
             { scoreboard.SetActive(true); }
-            else if (Input.GetKeyUp(KeyCode.Tab))
+            else if (Input.GetButtonUp("Show Scoreboard"))
             { scoreboard.SetActive(false); }
+        }
+
+        if (Input.GetButtonDown("Hide UI"))
+        {
+            canvas.enabled = !canvas.enabled;
         }
     }
 

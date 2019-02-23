@@ -80,16 +80,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // #Waiting for implementation.
-    public void Dodge()
-    {
-        if (player.Stamina - 40f >= 0f)
-        {
-            player.Speed = player.sprintSpeed * 4;
-            player.Stamina -= 40f;
-        }
-    }
-
-    // #Waiting for implementation.
     public void Crouch()
     {
         player.Speed = player.walkSpeed;

@@ -76,11 +76,6 @@ public class PlayerController : MonoBehaviour
             else
             { movement.Run(); }
 
-            // Dodge if player is not heading forward.
-            if (Input.GetButtonDown("Dodge") && !(zAxisMovement > 0) 
-                && (xAxisMovement != 0 || zAxisMovement != 0))
-            { movement.Dodge(); }
-
             // This will be changed to walk propably.
             if (Input.GetButton("Crouch") && !Input.GetButton("Sprint"))
             { movement.Crouch(); }
@@ -99,18 +94,25 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonUp("Mouse Left") && !Input.GetButton("Mouse Right"))
         {
-            if (holdTime <= 1f)
+            if (holdTime <= .2f)
                 combat.MainAttack();
             holdTime = 0f;
         }
 
         if (Input.GetButton("Mouse Right"))
         {
-            combat.Block();
+            combat.Block(true);
             movement.Walk();
             holdTime = 0f;
+            combat.isBlockActive = true;
+        }
+        if (Input.GetButtonUp("Mouse Right"))
+        {
+            combat.isBlockActive = false;
+            combat.blockTimer = 0f;
         }
 
+        combat.Block(false);
         combat.RegenerateMagicka();
     }
 
