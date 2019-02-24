@@ -210,7 +210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &108497412 stripped
 Transform:
@@ -423,7 +423,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: abf0956969c180547b46b245ec2be236, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: abf0956969c180547b46b245ec2be236, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -683,6 +683,7 @@ GameObject:
   - component: {fileID: 888427029}
   - component: {fileID: 888427028}
   - component: {fileID: 888427027}
+  - component: {fileID: 888427031}
   m_Layer: 0
   m_Name: Water S 02
   m_TagString: Untagged
@@ -760,6 +761,18 @@ Transform:
   m_Father: {fileID: 1043370635}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -91.24, z: 0}
+--- !u!65 &888427031
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 888427026}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.000004, y: 0.1, z: 18.000006}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &963425366
 Prefab:
   m_ObjectHideFlags: 0
