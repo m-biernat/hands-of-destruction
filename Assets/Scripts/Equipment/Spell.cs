@@ -7,11 +7,14 @@ public class Spell : NetworkBehaviour
 
     private float damage;
 
+    [SerializeField] private GameObject particleEffect;
+
     void OnTriggerEnter(Collider other)
     {
         if (isServer && (other.name != caster.name))
         {
             OnPlayerHit(other);
+            OnObjectHit();
             Destroy(gameObject);
         }
     }
@@ -33,6 +36,15 @@ public class Spell : NetworkBehaviour
                     + caster.playerName + " for " + damage);
             }
         }
+    }
+
+    private void OnObjectHit()
+    {
+        GameObject particles = Instantiate(particleEffect, transform.position, transform.rotation);
+
+        NetworkServer.Spawn(particles);
+
+        Destroy(particles, .4f);
     }
 
     public void SetSpell(Player caster, float damage)
