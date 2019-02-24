@@ -1,14 +1,31 @@
 fileFormatVersion: 2
-guid: 3ed254acadd00644d80e2ddafd0c9258
+guid: f35b3e3511be57546bc9b561cb3f2e39
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
+    100000: Cube
+    100002: //RootNode
+    100004: Plane
+    100006: Terrain_02
+    400000: Cube
+    400002: //RootNode
+    400004: Plane
+    400006: Terrain_02
     2100000: unnamed
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Terrain
+    2100002: Material_001
+    2100004: Material
+    2100006: Material_004
+    2100008: Material_002
+    2100010: Material_003
+    2300000: Cube
+    2300002: Plane
+    2300004: Terrain_02
+    3300000: Cube
+    3300002: Plane
+    3300004: Terrain_02
+    4300000: Cube
+    4300002: Plane
+    4300004: Terrain_02
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -42,7 +59,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.75
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -58,9 +75,9 @@ ModelImporter:
     preserveHierarchy: 0
     indexFormat: 0
     secondaryUVAngleDistortion: 8
-    secondaryUVAreaDistortion: 15
+    secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVPackMargin: 8
+    secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 1
@@ -85,7 +102,7 @@ ModelImporter:
     rootMotionBoneName: 
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 0
