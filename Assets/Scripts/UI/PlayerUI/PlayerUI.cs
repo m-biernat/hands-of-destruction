@@ -45,10 +45,13 @@ public class PlayerUI : MonoBehaviour
             { scoreboard.SetActive(false); }
         }
 
-        if (Input.GetButtonDown("Hide UI"))
+        if (Input.GetButtonDown("Hide UI") 
+            && GameManager.instance.eventCode == 0)
         {
             canvas.enabled = !canvas.enabled;
         }
+        if(GameManager.instance.eventCode != 0 && !canvas.enabled)
+        { canvas.enabled = true; }
     }
 
     public void SetPlayerComponent(Player playerComponent)
