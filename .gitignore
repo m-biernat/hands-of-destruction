@@ -37,3 +37,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Low Poly Water/Plane Meshes/Water10x10W10H10.asset
+Assets/Low Poly Water/Plane Meshes/Water10x30W10H30.asset
+Assets/Low Poly Water/Plane Meshes/Water12x18W12H18.asset
+Assets/Low Poly Water/Plane Meshes/Water12x38W12H38.asset
+Assets/Low Poly Water/Plane Meshes/Water18x42W18H42.asset
