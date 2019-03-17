@@ -1,5 +1,7 @@
 # Hands of Destruction
 
+[![Hands of Destruction](https://i.imgur.com/kaZVjNV.png)](https://imgur.com/a/xTeEce2)
+
 ### About
 
 Hands of Destruction is a multiplayer game project that focuses on player versus player type of gameplay. Player can select from two types of magic - Fire and Ice and three types of armor - Thef's, Barbarian's and Arcanist's armor sets. It gives us a variety of play styles that fits everyone. 
@@ -13,6 +15,8 @@ Now there are two game modes available:
 To win the game you have to complete objective under the time limit (or hold the highest score to the end of the game).
 
 Project has been made in Unity 2018.2.12f Personal Edition with Microsoft Visual Studio Community 2017 as code editor, Blender 2.79b and 3ds Max 2018 (Educational license) as 3D editor. For networking we used built in UNet and Unity Relay Servers (Free option that can hold up to 20 CCU).
+
+Gallery can be found [under this link](https://imgur.com/a/xTeEce2)!
 
 ### Credits
 
