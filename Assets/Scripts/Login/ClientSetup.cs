@@ -20,6 +20,11 @@ public class ClientSetup : MonoBehaviour
 
     private bool changed = false;
 
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     void Start()
     {
         lobbyUI = GetComponent<LobbyUI>();

@@ -1919,10 +1919,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d2240da189770f46b9025fb6e676fd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellSpawnPoint: {fileID: 4642700810555672}
   spellSpawnF: {fileID: 4642700810555672}
   spellSpawnH: {fileID: 4008680082550478}
   magicShield: {fileID: 1303457609206080}
+  isBlockActive: 0
+  blockTimer: 0
 --- !u!114 &114279624519267620
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2099,7 +2100,7 @@ MonoBehaviour:
     m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
-  antialiasingMode: 0
+  antialiasingMode: 1
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25
@@ -2179,7 +2180,7 @@ MonoBehaviour:
     m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
-  antialiasingMode: 0
+  antialiasingMode: 1
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointsToComplete: 15
   pointsMultiplier: 1
-  scoreMultiplier: 5
+  scoreMultiplier: 1
   respawnTime: 5
   objectiveText: Kill 'em all! 15 kills to victory!
   teamAssignEnabled: 0
