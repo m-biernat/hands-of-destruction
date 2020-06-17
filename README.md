@@ -18,6 +18,9 @@ Project has been made in Unity 2018.2.12f Personal Edition with Microsoft Visual
 
 Gallery can be found [under this link](https://imgur.com/a/xTeEce2)!
 
+##### Update 06/2020
+Fixed some bugs and upgraded project to Unity 2018.2.21f. Game is playable as long as UNet P2P Relay & MM Services are available (up to Q1 2022). After shutdown only option to play the game will be direct connection.
+
 ### Credits
 
 Game has been made by:
