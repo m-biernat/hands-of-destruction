@@ -1,40 +1,53 @@
 # Hands of Destruction
 
-[![Hands of Destruction](https://i.imgur.com/kaZVjNV.png)](https://imgur.com/a/xTeEce2)
+<p align="center"><img src="./Media/1 - kaZVjNV.png"/></p>
 
-### About
+## About
 
-Hands of Destruction is a multiplayer game project that focuses on player versus player type of gameplay. Player can select from two types of magic - Fire and Ice and three types of armor - Thef's, Barbarian's and Arcanist's armor sets. It gives us a variety of play styles that fits everyone. 
+Hands of Destruction is a networked **multiplayer PvP** game. The player can control a character that **uses magic** to fight the other players. The player can select from two types of magic - Fire and Ice and three types of armor sets - Thief's, Barbarian's and Arcanist's. These enable **various play styles**. 
 
-In order to play the game we can browse existing matches or create our own. Looking for game is easy - we can join by browsing room list, using quick join (match finder) or joining directly by entering IP addres of the server. We support both Unity Relay Servers and LAN so we can host a room available over the internet or just over our local network.
+There are two game modes available:
+ - Destruction Derby - a **team deathmatch** set up in a valley surrounded by mountains;
+ - Master Exploder - a classic type of **deathmatch** in western-like red canyon.
 
-Now there are two game modes available:
- - Destruction Derby - a team deathmatch set up in valley surrounded by mountains,
- - Master Exploder - a classic type of deathmatch in western-like red canyon.
+To win the game, you have to complete the **objective** under the **time limit** or hold the **highest score** to the end of the game.
 
-To win the game you have to complete objective under the time limit (or hold the highest score to the end of the game).
+As of 2022 and later, the **lobby browser** is unavailable due to the UNet P2P Relay & MM Services discontinuation and the only option to play the game is **direct connection** through LAN networking.
 
-Project has been made in Unity 2018.2.12f Personal Edition with Microsoft Visual Studio Community 2017 as code editor, Blender 2.79b and 3ds Max 2018 (Educational license) as 3D editor. For networking we used built in UNet and Unity Relay Servers (Free option that can hold up to 20 CCU).
+Check the gallery by clicking [here](https://imgur.com/a/xTeEce2) or [here](./Media/GALLERY.md).
 
-Gallery can be found [under this link](https://imgur.com/a/xTeEce2)!
+## Tools & Dependencies
 
-##### Update 06/2020
-Fixed some bugs and upgraded project to Unity 2018.2.21f. Game is playable as long as UNet P2P Relay & MM Services are available (up to Q1 2022). After shutdown only option to play the game will be direct connection.
+ - [Unity 2018.2.21](https://unity.com/releases/editor/whats-new/2018.2.21) - game engine (UNet for networking);
+ - [Blender 2.79](https://www.blender.org/download/releases/2-79/) - to create 3D models;
+ - 3Ds Max 2018 - to create other 3D models.
 
-### Credits
+*The project requires Blender installed because of ```.blend``` files.*
 
-Game has been made by:
- - @[m-bt](https://github.com/m-bt) Michał Biernat - lead game designer and programmer,
- - @[An-Hos](https://github.com/An-Hos) Anna Hosumbek - level designer,
- - @[JPawlow](https://github.com/JPawlow/) Jakub Pawłowski - 3d artist
+## Credits
 
-Most of the game assets have been made by us but we couldn’t do everything so we used couple of free assets from Unity Asset Store. We listed those down below:
- - [FREE Skybox - Cubemap Extended](https://assetstore.unity.com/packages/vfx/shaders/free-skybox-cubemap-extended-107400) by BOXOPHOBIC - skybox that fits low poly aesthetics,
+ - **Michał Biernat** @[m-biernat](https://github.com/m-biernat) - game designer, programmer;
+ -  **Anna Hosumbek** @[An-Hos](https://github.com/An-Hos) - level designer;
+ - **Jakub Pawłowski** @[JPawlow](https://github.com/JPawlow/)  - 3D artist.
+
+There are some 3rd party assets from the Unity Asset Store:
+ - [FREE Skybox - Cubemap 
+Extended](https://assetstore.unity.com/packages/vfx/shaders/free-skybox-cubemap-extended-107400)
+ by BOXOPHOBIC - skybox that fits low poly aesthetics,
  - [Magic Pack](https://assetstore.unity.com/packages/3d/animations/magic-pack-36269) by Mixamo - animations for character movement and casting spells,
  - [LowPoly Water](https://assetstore.unity.com/packages/tools/particles-effects/lowpoly-water-107563) by EBRU DOGAN - simple and cool looking low poly water,
  - [Simple FX - Cartoon Particles](https://assetstore.unity.com/packages/vfx/particles/simple-fx-cartoon-particles-67834) by SYNTY STUDIOS - nice particles that fit low poly style,
 
-We also used some icons from [flaticon.com](www.flaticon.com):
-- Running, Health care, Snowflake, Dice and Award icons made by Freepik from www.flaticon.com [Flaticon Basic License]
-- Fire icon made by Icomoon form www.flaticon.com [CC 3.0 BY]
-- Magic Wand icon made by Dave Gandy form www.flaticon.com [CC 3.0 BY]
+And some icons from [flaticon.com](www.flaticon.com):
+- Running, Health care, Snowflake, Dice, and Award icons made by Freepik 
+from www.flaticon.com [Flaticon Basic License]
+- Fire icon made by Icomoon from www.flaticon.com [CC 3.0 BY]
+- Magic Wand icon made by Dave Gandy from www.flaticon.com [CC 3.0 BY]
+
+## License
+All rights reserved* ([no license](https://choosealicense.com/no-permission/)): 
+ - You **can** view (peek into the code and assets) and fork this repository;
+ - You **cannot** reproduce, distribute, or create derivative works;
+ - You **can** play the game (*"Hands of Destruction"*) free of charge via the provided channels.
+
+**except of 3rd party assets mentioned in credits.*
